@@ -34,7 +34,7 @@ extern char toot_version[8] ; /* contains tinyfd current version number */
 
 extern int toot_verbose ; /* 0 (default) or 1 : prints the command line calls */
 
-void toot(int aFrequenceHz, int aLengthMs) ;
+void toot(float aFrequenceHz, int aLengthMs) ;
 
 #ifdef __cplusplus
 }

@@ -135,19 +135,19 @@ static int beepexePresent( )
 
 #endif /* LINUX */
 
-void toot(int aFrequenceHz, int aLengthMs)
+void toot(float aFrequenceHz, int aLengthMs)
 {
 #ifndef _WIN32
 	char lDialogString[256];
 	FILE * lIn;
 #endif
 
-	aFrequenceHz = aFrequenceHz > 0 ? aFrequenceHz : 440;
+	aFrequenceHz = aFrequenceHz > 0 ? aFrequenceHz : 440.f;
 	aLengthMs = aLengthMs > 0 ? aLengthMs : 300;
 
 #ifdef _WIN32
-	if (toot_verbose) printf("windows Beep %dHz %dms\n", aFrequenceHz, aLengthMs);
-	Beep(aFrequenceHz, aLengthMs);
+	if (toot_verbose) printf("windows Beep %dHz %dms\n", (int)aFrequenceHz, aLengthMs);
+	Beep((DWORD)aFrequenceHz, aLengthMs);
 #else /* UNIX */
 
 	if ( osascriptPresent() )
@@ -164,16 +164,16 @@ void toot(int aFrequenceHz, int aLengthMs)
 	else if ( pactlPresent() ) 
 	{
 		/*strcpy( lDialogString , "pactl load-module module-sine frequency=440;sleep .3;pactl unload-module module-sine" ) ;*/
-		sprintf(lDialogString, "thnum=$(pactl load-module module-sine frequency=%d);sleep .%d;pactl unload-module $thnum", aFrequenceHz, aLengthMs);
+		sprintf(lDialogString, "thnum=$(pactl load-module module-sine frequency=%f);sleep .%d;pactl unload-module $thnum", aFrequenceHz, aLengthMs);
 	}
 	else if ( speakertestPresent() ) 
 	{
 		/*strcpy( lDialogString , "timeout -k .3 .3 speaker-test --frequency 440 --test sine > /dev/tty" ) ;*/
-		sprintf(lDialogString, "(speaker-test -t sine -f %d > /dev/tty )& pid=$! ; sleep 0.%ds ; kill -9 $pid", aFrequenceHz, aLengthMs);
+		sprintf(lDialogString, "(speaker-test -t sine -f %f > /dev/tty )& pid=$! ; sleep 0.%ds ; kill -9 $pid", aFrequenceHz, aLengthMs);
 	}
 	else if ( beepexePresent() ) 
 	{
-		sprintf(lDialogString, "beep.exe %d %d\n", aFrequenceHz, aLengthMs);
+		sprintf(lDialogString, "beep.exe %f %d\n", aFrequenceHz, aLengthMs);
 	}
 	else
 	{

@@ -44,12 +44,12 @@ int main(int argc, char * argv[])
 	HANDLE lHStdOut;
 #endif
 	int i;
-	int lFrequence = 0 ;
+	float lFrequence = 0.f ;
 	int lLength = 0 ;
 
 	for (i = 0; i < argc; i++)
 	{
-		if (!strcmp(argv[i], "-f")) lFrequence = atoi(argv[i + 1]);
+		if (!strcmp(argv[i], "-f")) lFrequence = (float) atof(argv[i + 1]);
 		else if (!strcmp(argv[i], "-l")) lLength = atoi(argv[i + 1]);
 		else if (!strcmp(argv[i], "-h") || !strcmp(argv[i], "--help") || !strcmp(argv[i], "--version")
 			|| !strcmp(argv[i], "-v") || !strcmp(argv[i], "--verbose") )
