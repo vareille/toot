@@ -48,14 +48,15 @@ int main(int argc, char * argv[])
 			printf("  / __/ __ \\/ __ \\/ __/\n");
 			printf(" / /_/ /_/ / /_/ / /_  \n");
 			printf(" \\__/\\____/\\____/\\__/  \n\n");
-			printf("toot v%s (c) 2017 Guillaume Vareille http://ysengrin.com\n", toot_version);
+			printf("toot v%s (c) 2017 Guillaume Vareille http://ysengrin.com zlib licence\n", toot_version);
 			printf("cross-platform library and command line tool to toot \"tooooot\"\n");
-			printf("zlib licence\n");
+			printf("OSX Windows Linux BSD Solaris Minix Raspbian\n");
 			printf("Usage:\ttoot [-f freq(Hz)] [-l length(ms)]\n");
 			printf("\ttoot [-v] [--verbose]\n");
 			printf("\ttoot [-h] [--help]\n");
 			printf("\ttoot [--version]\n");
 			printf("Default:toot -f 440 -l 300\n");
+			printf("Example:toot\n");
 			return 1;
 		}
 		else if (!strcmp(argv[i], "--version"))
