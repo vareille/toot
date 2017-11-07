@@ -3,11 +3,10 @@
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/    Copyright (c) 2017 Guillaume Vareille http://ysengrin.com
-   a better beep         ____________________________________
+ a beep that beeps       ____________________________________
                         |                                    |
                         |    email: toot at ysengrin.com     |
                         |____________________________________|
-
 - License -
 
 This software is provided 'as-is', without any express or implied
@@ -73,7 +72,7 @@ int main(int argc, char * argv[])
 				printf("  / __/ __ \\/ __ \\/ __/\n");
 				printf(" / /_/ /_/ / /_/ / /_  \n");
 				printf(" \\__/\\____/\\____/\\__/  \n");
-				printf("    a better beep\n\n");
+				printf("  a beep that beeps\n\n");
 				printf("toot v%s (c) 2017 Guillaume Vareille http://ysengrin.com zlib licence\n", toot_version);
 				printf("cross-platform library and command line tool to toot \"tooooot\"\n");
 				printf("OSX Windows Linux BSD Solaris Minix Raspbian\n");

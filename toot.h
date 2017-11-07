@@ -3,7 +3,7 @@
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/    Copyright (c) 2017 Guillaume Vareille http://ysengrin.com
-   a better beep         ____________________________________
+ a beep that beeps       ____________________________________
                         |                                    |
                         |    email: toot at ysengrin.com     |
                         |____________________________________|

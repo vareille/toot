@@ -4,7 +4,7 @@ I've got tired of beep not working, here is toot (cross-platform C C++), it work
  / __/ __ \/ __ \/ __/  
 / /_/ /_/ / /_/ / /_  
 \__/\____/\____/\__/  
-   a better beep
+ a beep that beeps
 
 it is both a C C++ library and a command line tool
 Windows OSX Linux BSD Solaris Minix Raspbian
