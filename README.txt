@@ -6,6 +6,7 @@ I've got tired of beep not working, here is toot
 \__/\____/\____/\__/  
 
 it is both a C C++ library and a command line tool
+cross-platform: OSX Windows Linux BSD Solaris Minix Raspbian
 
 toot v1.0.0 (c) 2017 Guillaume Vareille http://ysengrin.com  
 zlib licence
