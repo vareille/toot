@@ -164,7 +164,7 @@ void toot(float aFrequenceHz, int aLengthMs)
 	else if ( pactlPresent() ) 
 	{
 		/*strcpy( lDialogString , "pactl load-module module-sine frequency=440;sleep .3;pactl unload-module module-sine" ) ;*/
-		sprintf(lDialogString, "thnum=$(pactl load-module module-sine frequency=%f);sleep .%d;pactl unload-module $thnum", aFrequenceHz, aLengthMs);
+		sprintf(lDialogString, "thnum=$(pactl load-module module-sine frequency=%d);sleep .%d;pactl unload-module $thnum", (int)aFrequenceHz, aLengthMs);
 	}
 	else if ( speakertestPresent() ) 
 	{
