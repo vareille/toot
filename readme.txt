@@ -34,3 +34,5 @@ MinGW :
 VisualStudio :
 Create an application project or an empty project (it links against Kernel32.lib)
 
+the release tab contains windows and osx executables
+
