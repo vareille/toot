@@ -1,0 +1,88 @@
+/* __              __ 
+  / /_____  ____  / /_  toot_cmd_line_main.c v1.0.0 [Nov 7, 2017] zlib licence
+ / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
+/ /_/ /_/ / /_/ / /_    file created [November 7, 2017]
+\__/\____/\____/\__/    Copyright (c) 2017 Guillaume Vareille http://ysengrin.com
+                         ____________________________________
+                        |                                    |
+                        |    email: toot at ysengrin.com     |
+                        |____________________________________|
+
+- License -
+
+This software is provided 'as-is', without any express or implied
+warranty.  In no event will the authors be held liable for any damages
+arising from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute it
+freely, subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must not
+claim that you wrote the original software.  If you use this software
+in a product, an acknowledgment in the product documentation would be
+appreciated but is not required.
+2. Altered source versions must be plainly marked as such, and must not be
+misrepresented as being the original software.
+3. This notice may not be removed or altered from any source distribution.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "toot.h"
+
+int main(int argc, char * argv[])
+{
+	int i ;
+	int lFrequence = 0 ;
+	int lLength = 0 ;
+
+	for (i = 0; i < argc; i++)
+	{
+		if (!strcmp(argv[i], "-h") || !strcmp(argv[i], "--help"))
+		{
+			printf("    __              __ \n");
+			printf("   / /_____  ____  / /_\n");
+			printf("  / __/ __ \\/ __ \\/ __/\n");
+			printf(" / /_/ /_/ / /_/ / /_  \n");
+			printf(" \\__/\\____/\\____/\\__/  \n\n");
+			printf("toot v%s (c) 2017 Guillaume Vareille http://ysengrin.com\n", toot_version);
+			printf("cross-platform library and command line tool to toot \"tooooot\"\n");
+			printf("zlib licence\n");
+			printf("Usage:\ttoot [-f freq(Hz)] [-l length(ms)]\n");
+			printf("\ttoot [-v] [--verbose]\n");
+			printf("\ttoot [-h] [--help]\n");
+			printf("\ttoot [--version]\n");
+			printf("Default:toot -f 440 -l 300\n");
+			return 1;
+		}
+		else if (!strcmp(argv[i], "--version"))
+		{
+			printf("%s\n", toot_version);
+			return 1;
+		}
+		else if (!strcmp(argv[i], "-v") || !strcmp(argv[i], "--verbose")) toot_verbose = 1;
+		else if (!strcmp(argv[i], "-f") ) lFrequence = atoi(argv[i+1]);
+		else if (!strcmp(argv[i], "-l") ) lLength = atoi(argv[i+1]);
+	}
+	toot( lFrequence , lLength ) ;
+}
+
+/*
+OSX :
+$ gcc -o toot.app toot_cmd_line_main.c toot.c
+( or clang )
+
+UNIX :
+$ gcc -o toot toot_cmd_line_main.c toot.c
+( or clang tcc cc CC )
+
+MinGW :
+> gcc -o toot.exe toot_cmd_line_main.c toot.c -LC:/mingw/lib -lkernel32
+( or tcc )
+
+VisualStudio :
+Create an application project or an empty project (it links against Kernel32.lib)
+*/
