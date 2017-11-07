@@ -1,4 +1,4 @@
-I've got tired of beep not working, here is toot (cross-platform C C++) 
+I've got tired of beep not working, here is toot (cross-platform C C++), it works. 
    __              __  
   / /_____  ____  / /_  
  / __/ __ \/ __ \/ __/  
