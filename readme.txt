@@ -11,7 +11,7 @@ Windows OSX Linux BSD Solaris Minix Raspbian
 
 toot v1.0.2 (c) 2017 Guillaume Vareille http://ysengrin.com zlib licence
 
-void toot(int aFrequenceHz, int aLengthMs) ;
+void toot(float aFrequence_Hz, int aLength_ms) ;
 
 Usage:  toot [-f freq(Hz)] [-l length(ms)]  
         toot [-v] [--verbose]  
