@@ -37,3 +37,15 @@ Create an application project or an empty project (it links against Kernel32.lib
 
 the release tab contains windows and osx executables
 
+************************************************************************
+I am also the author of tinyfiledialogs on sourceforge
+it's a cross-platform C C++ file that offers many native dialogs
+no init, no linking, no include, no main loop
+ _________
+/         \   NotifyPopup InputBox PasswordBox MessageBox ColorPicker
+|tiny file|   OpenFileDialog SaveFileDialog SelectFolderDialog
+| dialogs |   ASCII UTF-8 (and also MBCS UTF-16 on windows)
+\____  ___/   Native dialog library for WINDOWS MAC OSX GTK+ QT CONSOLE
+     \|
+************************************************************************
+
