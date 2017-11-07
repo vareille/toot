@@ -19,3 +19,18 @@ Usage:  toot [-f freq(Hz)] [-l length(ms)]
 Default: toot -f 440 -l 300
 Example: toot
 
+OSX :
+$ gcc -o toot.app toot_cmd_line_main.c toot.c
+( or clang )
+
+UNIX :
+$ gcc -o toot toot_cmd_line_main.c toot.c
+( or clang tcc cc CC )
+
+MinGW :
+> gcc -o toot.exe toot_cmd_line_main.c toot.c -LC:/mingw/lib -lkernel32
+( or tcc )
+
+VisualStudio :
+Create an application project or an empty project (it links against Kernel32.lib)
+
