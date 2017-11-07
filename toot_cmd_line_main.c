@@ -55,8 +55,8 @@ int main(int argc, char * argv[])
 			printf("\ttoot [-v] [--verbose]\n");
 			printf("\ttoot [-h] [--help]\n");
 			printf("\ttoot [--version]\n");
-			printf("Default:toot -f 440 -l 300\n");
-			printf("Example:toot\n");
+			printf("Default: toot -f 440 -l 300\n");
+			printf("Example: toot\n");
 			return 1;
 		}
 		else if (!strcmp(argv[i], "--version"))
