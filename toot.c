@@ -31,6 +31,7 @@ misrepresented as being the original software.
 #else /* UNIX */
  #define _POSIX_C_SOURCE 2 /* to accept POSIX 2 in old ANSI C standards */
  #include <string.h>
+ #include <dirent.h> /* on old systems try <sys/dir.h> instead */
 #endif
 #include <stdio.h>
 
@@ -164,12 +165,27 @@ void toot(float aFrequence_Hz, int aLength_ms)
 	else if ( pactlPresent() ) 
 	{
 		/*strcpy( lDialogString , "pactl load-module module-sine frequency=440;sleep .3;pactl unload-module module-sine" ) ;*/
-		sprintf(lDialogString, "thnum=$(pactl load-module module-sine frequency=%d);sleep %fs;pactl unload-module $thnum", (int)aFrequence_Hz, aLength_ms / 1000.f);
+		sprintf(lDialogString,
+			"thnum=$(pactl load-module module-sine frequency=%d);sleep %fs;pactl unload-module $thnum",
+			(int)aFrequence_Hz, aLength_ms / 1000.f);
 	}
 	else if ( speakertestPresent() ) 
 	{
 		/*strcpy( lDialogString , "timeout -k .3 .3 speaker-test --frequency 440 --test sine > /dev/tty" ) ;*/
-		sprintf(lDialogString, "(speaker-test -t sine -f %f > /dev/tty )& pid=$! ; sleep %fs ; kill -9 $pid", aFrequence_Hz, aLength_ms / 1000.f);
+		DIR* lDir = opendir("/dev/tty");
+		if (lDir)
+		{
+			closedir(lDir);
+			sprintf(lDialogString,
+				"(speaker-test -t sine -f %f > /dev/tty )& pid=$! ; sleep %fs ; kill -9 $pid",
+				aFrequence_Hz, aLength_ms / 1000.f);
+		}
+		else
+		{
+			sprintf(lDialogString,
+				"speaker-test -t sine -f %f & pid=$! ; sleep %fs ; kill -9 $pid",
+				aFrequence_Hz, aLength_ms / 1000.f);
+		}
 	}
 	else if ( beepexePresent() ) 
 	{
