@@ -168,7 +168,7 @@ void toot(float aFrequence_Hz, int aLength_ms)
 	{
 		/*strcpy( lDialogString , "pactl load-module module-sine frequency=440;sleep .3;pactl unload-module module-sine" ) ;*/
 		sprintf(lDialogString,
-"thnum=$(pactl load-module module-sine frequency=%d);sleep %fs;pactl unload-module $thnum",
+"thnum=$(pactl load-module module-sine frequency=%d);sleep %f;pactl unload-module $thnum",
 			(int)aFrequence_Hz, aLength_ms / 1000.f);
 	}
 	else if ( speakertestPresent() ) 
@@ -178,13 +178,13 @@ void toot(float aFrequence_Hz, int aLength_ms)
 		if ( !lDir && (ENOENT!=errno) )
 		{
 			sprintf(lDialogString,
-				"(speaker-test -t sine -f %f > /dev/tty) & pid=$!;sleep %fs;kill -9 $pid",
+				"(speaker-test -t sine -f %f > /dev/tty) & pid=$!;sleep %f;kill -9 $pid",
 				aFrequence_Hz, aLength_ms / 1000.f);
 		}
 		else
 		{
 			sprintf(lDialogString,
-				"(speaker-test -t sine -f %f) & pid=$!;sleep %fs;kill -9 $pid",
+				"(speaker-test -t sine -f %f) & pid=$!;sleep %f;kill -9 $pid",
 				aFrequence_Hz, aLength_ms / 1000.f);
 		}
 	}
