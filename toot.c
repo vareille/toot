@@ -142,6 +142,7 @@ void toot(float aFrequence_Hz, int aLength_ms)
 #ifndef _WIN32
 	char lDialogString[256];
 	FILE * lIn;
+	DIR * lDir;
 #endif
 
 	aFrequence_Hz = aFrequence_Hz > 0 ? aFrequence_Hz : 440.f;
@@ -173,10 +174,9 @@ void toot(float aFrequence_Hz, int aLength_ms)
 	else if ( speakertestPresent() ) 
 	{
 		/*strcpy( lDialogString , "timeout -k .3 .3 speaker-test --frequency 440 --test sine > /dev/tty" ) ;*/
-		DIR* lDir = opendir("/dev/tty");
+		lDir = opendir("/dev/tty");
 		if ( !lDir && (ENOENT!=errno) )
 		{
-
 			sprintf(lDialogString,
 				"(speaker-test -t sine -f %f > /dev/tty) & pid=$!;sleep %fs;kill -9 $pid",
 				aFrequence_Hz, aLength_ms / 1000.f);
@@ -194,7 +194,9 @@ void toot(float aFrequence_Hz, int aLength_ms)
 	}
 	else
 	{
-		strcpy( lDialogString , "printf '\a' > /dev/tty" ) ;
+		lDir = opendir("/dev/tty");
+		if ( !lDir && (ENOENT!=errno) ) strcpy( lDialogString , "printf '\a' > /dev/tty" ) ;
+		else strcpy( lDialogString , "printf '\a'" ) ;
 	}
 
 	if (toot_verbose) printf( "toot-cmdline: %s\n" , lDialogString ) ;
