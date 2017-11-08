@@ -135,6 +135,18 @@ static int beepexePresent( )
 	return lBeepexePresent ;
 }
 
+
+static int playPresent()
+{
+	static int lPlayPresent = -1;
+	if (lPlayPresent < 0)
+	{
+		lPlayPresent = detectPresence("play") ;
+	}
+	return lPlayPresent ;
+}
+
+
 #endif /* UNIX */
 
 void toot(float aFrequence_Hz, int aLength_ms)
@@ -191,6 +203,11 @@ void toot(float aFrequence_Hz, int aLength_ms)
 	else if ( beepexePresent() ) 
 	{
 		sprintf(lDialogString, "beep.exe %f %d\n", aFrequence_Hz, aLength_ms);
+	}
+	else if ( playPresent() ) 
+	{ /* play is part of sox */
+		sprintf(lDialogString, "play -n -r %d -c1 synth %f sine %f\n",
+			(int)(2.f*aFrequence_Hz), aLength_ms/1000.f, aFrequence_Hz);
 	}
 	else
 	{
