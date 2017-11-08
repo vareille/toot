@@ -164,12 +164,12 @@ void toot(float aFrequence_Hz, int aLength_ms)
 	else if ( pactlPresent() ) 
 	{
 		/*strcpy( lDialogString , "pactl load-module module-sine frequency=440;sleep .3;pactl unload-module module-sine" ) ;*/
-		sprintf(lDialogString, "thnum=$(pactl load-module module-sine frequency=%d);sleep .%d;pactl unload-module $thnum", (int)aFrequence_Hz, aLength_ms);
+		sprintf(lDialogString, "thnum=$(pactl load-module module-sine frequency=%d);sleep %fs;pactl unload-module $thnum", (int)aFrequence_Hz, aLength_ms / 1000.f);
 	}
 	else if ( speakertestPresent() ) 
 	{
 		/*strcpy( lDialogString , "timeout -k .3 .3 speaker-test --frequency 440 --test sine > /dev/tty" ) ;*/
-		sprintf(lDialogString, "(speaker-test -t sine -f %f > /dev/tty )& pid=$! ; sleep 0.%ds ; kill -9 $pid", aFrequence_Hz, aLength_ms);
+		sprintf(lDialogString, "(speaker-test -t sine -f %f > /dev/tty )& pid=$! ; sleep %fs ; kill -9 $pid", aFrequence_Hz, aLength_ms / 1000.f);
 	}
 	else if ( beepexePresent() ) 
 	{
