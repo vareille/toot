@@ -32,6 +32,7 @@ misrepresented as being the original software.
  #define _POSIX_C_SOURCE 2 /* to accept POSIX 2 in old ANSI C standards */
  #include <string.h>
  #include <dirent.h> /* on old systems try <sys/dir.h> instead */
+ #include <errno.h>
 #endif
 #include <stdio.h>
 
@@ -173,17 +174,17 @@ void toot(float aFrequence_Hz, int aLength_ms)
 	{
 		/*strcpy( lDialogString , "timeout -k .3 .3 speaker-test --frequency 440 --test sine > /dev/tty" ) ;*/
 		DIR* lDir = opendir("/dev/tty");
-		if (lDir)
+		if ( !lDir && (ENOENT!=errno) )
 		{
-			closedir(lDir);
+
 			sprintf(lDialogString,
-				"(speaker-test -t sine -f %f > /dev/tty )& pid=$! ; sleep %fs ; kill -9 $pid",
+				"(speaker-test -t sine -f %f > /dev/tty) & pid=$!;sleep %fs;kill -9 $pid",
 				aFrequence_Hz, aLength_ms / 1000.f);
 		}
 		else
 		{
 			sprintf(lDialogString,
-				"speaker-test -t sine -f %f & pid=$! ; sleep %fs ; kill -9 $pid",
+				"(speaker-test -t sine -f %f) & pid=$!;sleep %fs;kill -9 $pid",
 				aFrequence_Hz, aLength_ms / 1000.f);
 		}
 	}
