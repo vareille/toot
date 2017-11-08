@@ -20,6 +20,8 @@ Usage:  toot [-f frequence_Hz] [-l length_ms]
 Default: toot -f 440 -l 300
 Example: toot
 
+the release tab contains windows and osx executables
+
 make sure the volume is on (even if some beeps may use the hardware speaker)
 if you can't adjust frequence or length (or if there is no beep)
 	on osx:		you can install sox http://macappstore.org/sox
@@ -39,8 +41,6 @@ MinGW :
 
 VisualStudio :
 Create an application project or an empty project (it links against Kernel32.lib)
-
-the release tab contains windows and osx executables
 
 ************************************************************************
 I am also the author of tiny file dialogs
