@@ -183,7 +183,7 @@ void toot(float aFrequence_Hz, int aLength_ms)
 		else
 		{
 			sprintf(lDialogString,
-				"speaker-test -t sine -f %f & pid=$! ; sleep %fs ; kill -9 $pid",
+				"(speaker-test -t sine -f %f > /dev/tty )& pid=$! ; sleep %fs ; kill -9 $pid",
 				aFrequence_Hz, aLength_ms / 1000.f);
 		}
 	}
