@@ -133,7 +133,7 @@ static int beepexePresent( )
 	return lBeepexePresent ;
 }
 
-#endif /* LINUX */
+#endif /* UNIX */
 
 void toot(float aFrequence_Hz, int aLength_ms)
 {
@@ -185,5 +185,5 @@ void toot(float aFrequence_Hz, int aLength_ms)
 	{
 		pclose( lIn ) ;
 	}
-#endif /* LINUX */
+#endif /* UNIX */
 }
