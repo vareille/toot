@@ -76,7 +76,7 @@ int main(int argc, char * argv[])
 				printf("toot v%s (c) 2017 Guillaume Vareille http://ysengrin.com zlib licence\n", toot_version);
 				printf("cross-platform library and command line tool to toot \"tooooot\"\n");
 				printf("OSX Windows Linux BSD Solaris Minix Raspbian\n");
-				printf("Usage:\ttoot [-f freq(Hz)] [-l length(ms)]\n");
+				printf("Usage:\ttoot [-f frequence_Hz] [-l length_ms]\n");
 				printf("\ttoot [-v] [--verbose]\n");
 				printf("\ttoot [-h] [--help]\n");
 				printf("\ttoot [--version]\n");
