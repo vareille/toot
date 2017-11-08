@@ -20,6 +20,10 @@ Usage:  toot [-f frequence_Hz] [-l length_ms]
 Default: toot -f 440 -l 300
 Example: toot
 
+make sure the volume is on (even if some beeps may use the hardware speaker).
+on unix: if there is no beep or if you can't adjust frequence or length
+         you can try to install pactl or speaker-test or sox (via brew on osx)
+
 OSX :
 $ gcc -o toot.app toot_cmd_line_main.c toot.c
 ( or clang )
