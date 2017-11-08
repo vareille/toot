@@ -165,23 +165,7 @@ void toot(float aFrequence_Hz, int aLength_ms)
 	Beep((DWORD)aFrequence_Hz, aLength_ms);
 #else /* UNIX */
 
-	if ( osascriptPresent() )
-	{
-		if ( playPresent() ) 
-		{ /* play is part of sox */
-			sprintf(lDialogString, "play -n -r %d -c1 synth %f sine %f\n",
-				(int)(2.5f*aFrequence_Hz), aLength_ms/1000.f, aFrequence_Hz);
-		}
-		else if ( afplayPresent() >= 2 )
-		{
-			strcpy( lDialogString , "afplay /System/Library/Sounds/Ping.aiff") ;
-		}
-		else
-		{
-			strcpy( lDialogString , "osascript -e 'tell application \"System Events\" to beep'") ;
-		}
-	}
-	else if ( pactlPresent() ) 
+	if ( pactlPresent() ) 
 	{
 		/*strcpy( lDialogString , "pactl load-module module-sine frequency=440;sleep .3;pactl unload-module module-sine" ) ;*/
 		sprintf(lDialogString,
@@ -213,6 +197,17 @@ void toot(float aFrequence_Hz, int aLength_ms)
 	{ /* play is part of sox */
 		sprintf(lDialogString, "play -n -r %d -c1 synth %f sine %f\n",
 			(int)(2.5f*aFrequence_Hz), aLength_ms/1000.f, aFrequence_Hz);
+	}
+	else if ( osascriptPresent() )
+	{
+		if ( afplayPresent() >= 2 )
+		{
+			strcpy( lDialogString , "afplay /System/Library/Sounds/Ping.aiff") ;
+		}
+		else
+		{
+			strcpy( lDialogString , "osascript -e 'tell application \"System Events\" to beep'") ;
+		}
 	}
 	else
 	{
