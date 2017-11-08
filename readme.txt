@@ -40,7 +40,7 @@ the release tab contains windows and osx executables
 ************************************************************************
 I am also the author of tinyfiledialogs on sourceforge
 it's a cross-platform C C++ file that offers many native dialogs
-no init, no linking, no include, no main loop
+no init, no main loop, no include, no linking
  _________
 /         \   NotifyPopup InputBox PasswordBox MessageBox ColorPicker
 |tiny file|   OpenFileDialog SaveFileDialog SelectFolderDialog
