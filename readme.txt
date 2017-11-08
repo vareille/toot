@@ -1,9 +1,9 @@
 I've got tired of beep not working, here is toot (cross-platform C C++), it works. 
-   __              __  
-  / /_____  ____  / /_  
- / __/ __ \/ __ \/ __/  
-/ /_/ /_/ / /_/ / /_  
-\__/\____/\____/\__/  
+   __              __
+  / /_____  ____  / /_
+ / __/ __ \/ __ \/ __/
+/ /_/ /_/ / /_/ / /_
+\__/\____/\____/\__/
  a beep that beeps
 
 it is both a C C++ library and a command line tool
@@ -13,7 +13,7 @@ toot v1.0.2 (c) 2017 Guillaume Vareille http://ysengrin.com zlib licence
 
 void toot(float aFrequence_Hz, int aLength_ms) ;
 
-Usage:  toot [-f freq(Hz)] [-l length(ms)]  
+Usage:  toot [-f frequence_Hz] [-l length_ms]  
         toot [-v] [--verbose]  
         toot [-h] [--help]  
         toot [--version]  
