@@ -149,7 +149,7 @@ static int playPresent()
 
 #endif /* UNIX */
 
-void toot(float aFrequence_Hz, int aLength_ms)
+void toot(float aFrequency_Hz, int aLength_ms)
 {
 #ifndef _WIN32
 	char lDialogString[256];
@@ -157,12 +157,12 @@ void toot(float aFrequence_Hz, int aLength_ms)
 	DIR * lDir;
 #endif
 
-	aFrequence_Hz = aFrequence_Hz > 0 ? aFrequence_Hz : 440.f;
+	aFrequency_Hz = aFrequency_Hz > 0 ? aFrequency_Hz : 440.f;
 	aLength_ms = aLength_ms > 0 ? aLength_ms : 300;
 
 #ifdef _WIN32
-	if (toot_verbose) printf("windows Beep %dHz %dms\n", (int)aFrequence_Hz, aLength_ms);
-	Beep((DWORD)aFrequence_Hz, aLength_ms);
+	if (toot_verbose) printf("windows Beep %dHz %dms\n", (int)aFrequency_Hz, aLength_ms);
+	Beep((DWORD)aFrequency_Hz, aLength_ms);
 #else /* UNIX */
 
 	if ( pactlPresent() ) 
@@ -170,7 +170,7 @@ void toot(float aFrequence_Hz, int aLength_ms)
 		/*strcpy( lDialogString , "pactl load-module module-sine frequency=440;sleep .3;pactl unload-module module-sine" ) ;*/
 		sprintf(lDialogString,
 "thnum=$(pactl load-module module-sine frequency=%d);sleep %f;pactl unload-module $thnum",
-			(int)aFrequence_Hz, aLength_ms / 1000.f);
+			(int)aFrequency_Hz, aLength_ms / 1000.f);
 	}
 	else if ( speakertestPresent() ) 
 	{
@@ -180,23 +180,23 @@ void toot(float aFrequence_Hz, int aLength_ms)
 		{
 			sprintf(lDialogString,
 				"(speaker-test -t sine -f %f > /dev/tty) & pid=$!;sleep %f;kill -9 $pid",
-				aFrequence_Hz, aLength_ms / 1000.f);
+				aFrequency_Hz, aLength_ms / 1000.f);
 		}
 		else
 		{
 			sprintf(lDialogString,
 				"(speaker-test -t sine -f %f) & pid=$!;sleep %f;kill -9 $pid",
-				aFrequence_Hz, aLength_ms / 1000.f);
+				aFrequency_Hz, aLength_ms / 1000.f);
 		}
 	}
 	else if ( beepexePresent() ) 
 	{
-		sprintf(lDialogString, "beep.exe %f %d\n", aFrequence_Hz, aLength_ms);
+		sprintf(lDialogString, "beep.exe %f %d\n", aFrequency_Hz, aLength_ms);
 	}
 	else if ( playPresent() ) 
 	{ /* play is part of sox */
 		sprintf(lDialogString, "play -n -r %d -c1 synth %f sine %f\n",
-			(int)(2.5f*aFrequence_Hz), aLength_ms/1000.f, aFrequence_Hz);
+			(int)(2.5f*aFrequency_Hz), aLength_ms/1000.f, aFrequency_Hz);
 	}
 	else if ( osascriptPresent() )
 	{

@@ -11,9 +11,9 @@ Windows OSX Linux BSD Solaris Minix Raspbian
 
 toot v1.0.5 (c) 2017 Guillaume Vareille http://ysengrin.com zlib licence
 
-void toot(float aFrequence_Hz, int aLength_ms) ;
+void toot(float aFrequency_Hz, int aLength_ms) ;
 
-Usage:  toot [-f frequence_Hz] [-l length_ms]  
+Usage:  toot [-f frequency_Hz] [-l length_ms]  
         toot [-v] [--verbose]  
         toot [-h] [--help]  
         toot [--version]  
@@ -23,7 +23,7 @@ Example: toot
 the release tab contains windows and osx executables
 
 make sure the volume is on (even if some beeps may use the hardware speaker)
-if you can't adjust frequence or length (or if there is no beep)
+if you can't adjust frequency or length (or if there is no beep)
 	on osx:		you can install sox http://macappstore.org/sox
 	on unix:	you can install pactl or speaker-test or sox
 
