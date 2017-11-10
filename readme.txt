@@ -27,6 +27,9 @@ if you can't adjust frequency or length (or if there is no beep)
 	on osx:		you can install sox http://macappstore.org/sox
 	on unix:	you can install pactl or speaker-test or sox
 
+If you know of any other way to reliably generate sine wave sound or beep on
+anykind of machine, I'll be happy to add them to toot. Let me know: toot at ysengrin.com
+
 OSX :
 $ gcc -o toot.app toot_cmd_line_main.c toot.c
 ( or clang )
