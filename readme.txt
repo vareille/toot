@@ -1,4 +1,4 @@
-I've got tired of beep not working, here is toot (cross-platform C C++), it works. 
+I've got tired of beep not working, here is toot (cross-platform C C++), toot works. 
    __              __
   / /_____  ____  / /_
  / __/ __ \/ __ \/ __/
@@ -6,7 +6,7 @@ I've got tired of beep not working, here is toot (cross-platform C C++), it work
 \__/\____/\____/\__/
  a beep that beeps
 
-it is both a C C++ library and a command line tool
+it's both a C C++ library and a command line tool
 Windows OSX Linux BSD Solaris Minix Raspbian
 
 toot v1.0.5 (c) 2017 Guillaume Vareille http://ysengrin.com zlib licence
@@ -22,7 +22,7 @@ Example: toot
 
 the release tab contains windows and osx executables
 
-make sure the volume is on (even if some beeps may use the hardware speaker)
+make sure the volume is on (though some beeps may use the hardware speaker)
 if you can't adjust frequency or length (or if it doesn't beep)
 	on osx:		you can install sox http://macappstore.org/sox
 	on unix:	you can install pactl or speaker-test or sox
