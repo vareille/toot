@@ -64,7 +64,7 @@ int main(int argc, char * argv[])
 			}
 #endif
 			if (!strcmp(argv[i], "-v") || !strcmp(argv[i], "--verbose")) toot_verbose = 1;
-			else if (!strcmp(argv[i], "--version")) { printf("%s\n", toot_version); return 1; }
+			else if (!strcmp(argv[i], "--version")) { printf("%s\n", toot_version); return 0; }
 			else
 			{
 				printf("    __              __ \n");
@@ -82,11 +82,12 @@ int main(int argc, char * argv[])
 				printf("\ttoot [--version]\n");
 				printf("Default: toot -f 440 -l 300\n");
 				printf("Example: toot\n");
-				return 1;
+				return 0;
 			}
 		}
 	}
 	toot( lFrequency , lLength ) ;
+	return 0;
 }
 
 /*
