@@ -23,7 +23,7 @@ Example: toot
 the release tab contains windows and osx executables
 
 make sure the volume is on (though some beeps may use the hardware speaker)
-if you can't adjust frequency or length (or if it doesn't beep)
+if you can't adjust frequency / length (or if it doesn't beep)
 	on osx:		you can install sox http://macappstore.org/sox
 	on unix:	you can install pactl or speaker-test or sox
 
