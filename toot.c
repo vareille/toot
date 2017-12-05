@@ -44,7 +44,7 @@ int toot_verbose = 0; /* 0 (default) or 1 : prints the command line calls */
 
 #ifndef _WIN32
 
-void sigHandler(int sig)
+static void sigHandler(int sig)
 {
 	FILE * lIn ;
 	if ( ( lIn = popen( "pactl unload-module module-sine" , "r" ) ) )
