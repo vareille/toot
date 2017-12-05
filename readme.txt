@@ -9,7 +9,7 @@ I've got tired of beep not working, here is toot (cross-platform C C++), toot wo
 it's both a C C++ library and a command line tool
 Windows OSX Linux BSD Solaris Minix Raspbian
 
-toot v1.0.5 (c) 2017 Guillaume Vareille http://ysengrin.com zlib licence
+toot v1.0.6 (c) 2017 Guillaume Vareille http://ysengrin.com zlib licence
 
 void toot(float aFrequency_Hz, int aLength_ms) ;
 
