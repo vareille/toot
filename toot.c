@@ -1,5 +1,5 @@
 /* __              __ 
-  / /_____  ____  / /_  toot.c v1.0.5 [Nov 8, 2017] zlib licence
+  / /_____  ____  / /_  toot.c v1.0.6 [Dec 5, 2017] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/    Copyright (c) 2017 Guillaume Vareille http://ysengrin.com
@@ -33,14 +33,24 @@ misrepresented as being the original software.
  #include <string.h>
  #include <dirent.h> /* on old systems try <sys/dir.h> instead */
  #include <errno.h>
+ #include <signal.h>
 #endif
 #include <stdio.h>
 
-char toot_version[8] = "1.0.5"; /* contains tinyfd current version number */
+char toot_version[8] = "1.0.6"; /* contains tinyfd current version number */
 
 int toot_verbose = 0; /* 0 (default) or 1 : prints the command line calls */
 
 #ifndef _WIN32
+
+void intHandler(int dummy)
+{
+	FILE * lIn ;
+	if ( ( lIn = popen( "kill -9 $pid" , "r" ) ) )
+	{
+		pclose( lIn ) ;
+	}
+}
 
 static int detectPresence(char const * const aExecutable)
 {
