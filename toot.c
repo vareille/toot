@@ -34,6 +34,7 @@ misrepresented as being the original software.
  #include <dirent.h> /* on old systems try <sys/dir.h> instead */
  #include <errno.h>
  #include <signal.h>
+ #include <stdlib.h>
 #endif
 #include <stdio.h>
 
@@ -43,13 +44,13 @@ int toot_verbose = 0; /* 0 (default) or 1 : prints the command line calls */
 
 #ifndef _WIN32
 
-void intHandler(int dummy)
+void intHandler(int aSignal)
 {
 	FILE * lIn ;
-	if ( ( lIn = popen( "kill -9 $pid" , "r" ) ) )
-	{
-		pclose( lIn ) ;
-	}
+	if ( ( lIn = popen( "pactl unload-module module-sine" , "r" ) ) )
+    {
+        pclose( lIn ) ;
+    }
 }
 
 static int detectPresence(char const * const aExecutable)
@@ -177,6 +178,8 @@ void toot(float aFrequency_Hz, int aLength_ms)
 
 	if ( pactlPresent() ) 
 	{
+        signal(SIGINT, intHandler);
+
 		/*strcpy( lDialogString , "pactl load-module module-sine frequency=440;sleep .3;pactl unload-module module-sine" ) ;*/
 		sprintf(lDialogString,
 "thnum=$(pactl load-module module-sine frequency=%d);sleep %f;pactl unload-module $thnum",
@@ -227,6 +230,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 	}
 
 	if (toot_verbose) printf( "toot-cmdline: %s\n" , lDialogString ) ;
+
 	if ( ( lIn = popen( lDialogString , "r" ) ) )
 	{
 		pclose( lIn ) ;
