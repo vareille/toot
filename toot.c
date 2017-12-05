@@ -33,8 +33,7 @@ misrepresented as being the original software.
  #include <string.h>
  #include <dirent.h> /* on old systems try <sys/dir.h> instead */
  #include <errno.h>
- #include <signal.h>
- #include <stdlib.h>
+ #include <signal.h> /* on old systems try <sys/signal.h> instead */
 #endif
 #include <stdio.h>
 
