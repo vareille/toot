@@ -44,7 +44,7 @@ int toot_verbose = 0; /* 0 (default) or 1 : prints the command line calls */
 
 #ifndef _WIN32
 
-void intHandler(int aSignal)
+void sigHandler(int sig)
 {
 	FILE * lIn ;
 	if ( ( lIn = popen( "pactl unload-module module-sine" , "r" ) ) )
@@ -178,7 +178,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 
 	if ( pactlPresent() ) 
 	{
-        signal(SIGINT, intHandler);
+		signal(SIGINT, sigHandler);
 
 		/*strcpy( lDialogString , "pactl load-module module-sine frequency=440;sleep .3;pactl unload-module module-sine" ) ;*/
 		sprintf(lDialogString,
@@ -235,5 +235,11 @@ void toot(float aFrequency_Hz, int aLength_ms)
 	{
 		pclose( lIn ) ;
 	}
+
+	if ( pactlPresent() )
+	{
+		signal(SIGINT, SIG_DFL);
+	}
+
 #endif /* UNIX */
 }
