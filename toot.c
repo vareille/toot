@@ -135,6 +135,17 @@ static int speakertestPresent( )
 }
 
 
+static int beepexePresent()
+{
+	static int lBeepexePresent = -1;
+	if (lBeepexePresent < 0)
+	{
+		lBeepexePresent = detectPresence("beep.exe");
+	}
+	return lBeepexePresent;
+}
+
+
 static int beepPresent( )
 {
 	static int lBeepPresent = -1 ;
@@ -201,10 +212,13 @@ void toot(float aFrequency_Hz, int aLength_ms)
 				aFrequency_Hz, aLength_ms / 1000.f);
 		}
 	}
-	else if (playPresent())
-	{ /* play is part of sox */
-		sprintf(lDialogString, "play -n -r %d -c1 synth %f sine %f\n",
-			(int)(2.5f * aFrequency_Hz), aLength_ms / 1000.f, aFrequency_Hz);
+	else if (beepexePresent())
+	{
+		sprintf(lDialogString, "beep.exe %f %d\n", aFrequency_Hz, aLength_ms);
+	}
+	else if (playPresent()) /* play is part of sox */
+	{
+		sprintf(lDialogString, "play -n synth %f sine %f\n", aLength_ms/1000.f, aFrequency_Hz);
 	}
 	else if ( beepPresent() )
 	{
