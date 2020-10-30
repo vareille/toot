@@ -135,14 +135,14 @@ static int speakertestPresent( )
 }
 
 
-static int beepexePresent( )
+static int beepPresent( )
 {
-	static int lBeepexePresent = -1 ;
-	if ( lBeepexePresent < 0 )
+	static int lBeepPresent = -1 ;
+	if ( lBeepPresent < 0 )
 	{
-		lBeepexePresent = detectPresence("beep.exe") ;
+		lBeepPresent = detectPresence("beep") ;
 	}
-	return lBeepexePresent ;
+	return lBeepPresent ;
 }
 
 
@@ -201,9 +201,9 @@ void toot(float aFrequency_Hz, int aLength_ms)
 				aFrequency_Hz, aLength_ms / 1000.f);
 		}
 	}
-	else if ( beepexePresent() ) 
+	else if ( beepPresent() ) 
 	{
-		sprintf(lDialogString, "beep.exe %f %d\n", aFrequency_Hz, aLength_ms);
+		sprintf(lDialogString, "beep -f %f -l %d\n", aFrequency_Hz, aLength_ms);
 	}
 	else if ( playPresent() ) 
 	{ /* play is part of sox */
