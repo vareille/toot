@@ -52,7 +52,7 @@ static void sigHandler(int sig)
     }
 }
 
-static int detectPresence(char const * const aExecutable)
+static int detectPresence(char const * aExecutable)
 {
 	char lBuff [256] ;
 	char lTestedString [256] = "which " ;
