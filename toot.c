@@ -151,7 +151,7 @@ static int playPresent()
 	static int lPlayPresent = -1;
 	if (lPlayPresent < 0)
 	{
-		lPlayPresent = detectPresence("play") ;
+		lPlayPresent = detectPresence("sox") ;
 	}
 	return lPlayPresent ;
 }
@@ -201,14 +201,14 @@ void toot(float aFrequency_Hz, int aLength_ms)
 				aFrequency_Hz, aLength_ms / 1000.f);
 		}
 	}
-	else if ( beepPresent() ) 
-	{
-		sprintf(lDialogString, "beep -f %f -l %d\n", aFrequency_Hz, aLength_ms);
-	}
-	else if ( playPresent() ) 
+	else if (playPresent())
 	{ /* play is part of sox */
 		sprintf(lDialogString, "play -n -r %d -c1 synth %f sine %f\n",
-			(int)(2.5f*aFrequency_Hz), aLength_ms/1000.f, aFrequency_Hz);
+			(int)(2.5f * aFrequency_Hz), aLength_ms / 1000.f, aFrequency_Hz);
+	}
+	else if ( beepPresent() )
+	{
+		sprintf(lDialogString, "beep -f %f -l %d\n", aFrequency_Hz, aLength_ms);
 	}
 	else if ( osascriptPresent() )
 	{
