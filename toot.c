@@ -37,7 +37,7 @@ misrepresented as being the original software.
 #endif
 #include <stdio.h>
 
-char toot_version[8] = "1.0.6"; /* contains tinyfd current version number */
+char toot_version[8] = "1.0.6"; /* contains toots current version number */
 
 int toot_verbose = 0; /* 0 (default) or 1 : prints the command line calls */
 

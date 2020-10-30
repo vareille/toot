@@ -30,7 +30,7 @@ misrepresented as being the original software.
 extern "C" {
 #endif
 	
-extern char toot_version[8] ; /* contains tinyfd current version number */
+extern char toot_version[8] ; /* contains toot current version number */
 
 extern int toot_verbose ; /* 0 (default) or 1 : prints the command line calls */
 
