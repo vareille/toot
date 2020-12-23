@@ -39,6 +39,11 @@ misrepresented as being the original software.
 #endif
 #include <stdio.h>
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 char toot_version[8] = "1.0.7"; /* contains toots current version number */
 
 int toot_verbose = 0; /* 0 (default) or 1 : prints the command line calls */
@@ -258,3 +263,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 
 #endif /* UNIX */
 }
+
+#ifdef __cplusplus
+}
+#endif

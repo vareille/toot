@@ -28,6 +28,9 @@ misrepresented as being the original software.
 3. This notice may not be removed or altered from any source distribution.
 */
 
+#ifndef TOOT_H
+#define TOOT_H
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -41,3 +44,5 @@ void toot(float aFrequency_Hz, int aLength_ms) ;
 #ifdef __cplusplus
 }
 #endif
+
+#endif // TOOT_H
