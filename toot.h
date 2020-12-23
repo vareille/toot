@@ -1,5 +1,5 @@
 /* __              __ 
-  / /_____  ____  / /_  toot.h v1.0.7 [Oct 30, 2017] zlib licence
+  / /_____  ____  / /_  toot.h v1.0.8 [Dec 23, 2020] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/    Copyright (c) 2017 Guillaume Vareille http://ysengrin.com
@@ -28,16 +28,8 @@ misrepresented as being the original software.
 3. This notice may not be removed or altered from any source distribution.
 */
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-	
 extern char toot_version[8] ; /* contains toot current version number */
 
 extern int toot_verbose ; /* 0 (default) or 1 : prints the command line calls */
 
 void toot(float aFrequency_Hz, int aLength_ms) ;
-
-#ifdef __cplusplus
-}
-#endif

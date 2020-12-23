@@ -9,7 +9,7 @@ I've got tired of beep not working, here is toot (cross-platform C C++), toot wo
 it's both a C C++ library and a command line tool
 Windows OSX Linux BSD Solaris Minix Raspbian
 
-toot v1.0.7 [Oct 30, 2020]
+toot v1.0.8 [Dec 23, 2020]
 (c) 2017 Guillaume Vareille http://ysengrin.com zlib licence
 https://github.com/vareille/toot
 git clone https://github.com/vareille/toot.git toot

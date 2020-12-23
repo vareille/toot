@@ -1,12 +1,14 @@
+/* this file can be renamed with extension ".cpp" as the code is 100% compatible C C++ */
+
 /* __              __ 
-  / /_____  ____  / /_  toot_cmd_line_main.c v1.0.7 [Oct 30, 2017] zlib licence
+  / /_____  ____  / /_  toot_cmd_line_main.c v1.0.8 [Dec 23, 2020] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/    Copyright (c) 2017 Guillaume Vareille http://ysengrin.com
  a beep that beeps      https://github.com/vareille/toot
 								git clone https://github.com/vareille/toot.git toot
-								 ____________________________________
-								|                                    |
+						 ____________________________________
+						|                                    |
                         |    email: toot at ysengrin.com     |
                         |____________________________________|
 - License -

@@ -1,5 +1,7 @@
+/* this file can be renamed with extension ".cpp" as the code is 100% compatible C C++ */
+
 /* __              __ 
-  / /_____  ____  / /_  toot.c v1.0.7 [Oct 30, 2020] zlib licence
+  / /_____  ____  / /_  toot.c v1.0.8 [Dec 23, 2020] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/    Copyright (c) 2017 Guillaume Vareille http://ysengrin.com
@@ -25,7 +27,7 @@ in a product, an acknowledgment in the product documentation would be
 appreciated but is not required.
 2. Altered source versions must be plainly marked as such, and must not be
 misrepresented as being the original software.
-3. This notice may not be removed or altered from any source distribution.
+3. This notice may not be removed or altered from any source distributon.
 */
 
 #ifdef _WIN32
@@ -39,7 +41,7 @@ misrepresented as being the original software.
 #endif
 #include <stdio.h>
 
-char toot_version[8] = "1.0.7"; /* contains toots current version number */
+char toot_version[8] = "1.0.8"; /* contains toots current version number */
 
 int toot_verbose = 0; /* 0 (default) or 1 : prints the command line calls */
 
@@ -168,7 +170,6 @@ static int playPresent()
 	}
 	return lPlayPresent ;
 }
-
 
 #endif /* UNIX */
 
