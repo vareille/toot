@@ -83,7 +83,7 @@ static int powershellPresent(void)
 
 static int windowsVersion(void)
 {
-#ifndef __MINGW32__
+#if !defined(__MINGW32__) || defined(__MINGW64_VERSION_MAJOR)
 	typedef LONG NTSTATUS;
 	typedef NTSTATUS(WINAPI* RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
 	HMODULE hMod;
@@ -102,9 +102,8 @@ static int windowsVersion(void)
 			}
 		}
 	}
-#else
-	if (powershellPresent()) return 6; /*minimum is vista*/
 #endif
+	if (powershellPresent()) return 6; /*minimum is vista or installed on xp*/
 	return 0;
 }
 #else
