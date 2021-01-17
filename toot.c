@@ -103,7 +103,7 @@ static int windowsVersion(void)
 		}
 	}
 #endif
-	if (powershellPresent()) return 6; /*minimum is vista or installed on xp*/
+	if (powershellPresent()) return 6 ; /*minimum is vista or installed on xp*/
 	return 0;
 }
 #else
