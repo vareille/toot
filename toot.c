@@ -1,10 +1,10 @@
 /* this file can be renamed with extension ".cpp" as the code is 100% compatible C C++ */
 
 /* __              __ 
-  / /_____  ____  / /_  toot.c v1.0.8 [Dec 23, 2020] zlib licence
+  / /_____  ____  / /_  toot.c v1.0.9 [Jan 17, 2021] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
-\__/\____/\____/\__/    Copyright (c) 2017 Guillaume Vareille http://ysengrin.com
+\__/\____/\____/\__/    Copyright (c) 2017 - 2021 Guillaume Vareille http://ysengrin.com
  a beep that beeps      https://github.com/vareille/toot
                         git clone https://github.com/vareille/toot.git toot
                          ____________________________________
@@ -41,12 +41,73 @@ misrepresented as being the original software.
 #endif
 #include <stdio.h>
 
-char toot_version[8] = "1.0.8"; /* contains toots current version number */
+char toot_version[8] = "1.0.9"; /* contains toots current version number */
 
 int toot_verbose = 0; /* 0 (default) or 1 : prints the command line calls */
 
-#ifndef _WIN32
+#ifdef _WIN32
+static int powershellPresent(void)
+{
+	static int lPowershellPresent = -1;
+	char lBuff[MAX_PATH];
+	FILE* lIn;
+	char const* lString = "powershell.exe";
 
+	if (lPowershellPresent < 0)
+	{
+		if (!(lIn = _popen("where powershell.exe", "r")))
+		{
+			lPowershellPresent = 0;
+			return 0;
+		}
+		while (fgets(lBuff, sizeof(lBuff), lIn) != NULL)
+		{
+		}
+		_pclose(lIn);
+		if (lBuff[strlen(lBuff) - 1] == '\n')
+		{
+			lBuff[strlen(lBuff) - 1] = '\0';
+		}
+		if (strcmp(lBuff + strlen(lBuff) - strlen(lString), lString))
+		{
+			lPowershellPresent = 0;
+		}
+		else
+		{
+			lPowershellPresent = 1;
+		}
+	}
+	return lPowershellPresent;
+}
+
+
+static int windowsVersion(void)
+{
+#ifndef __MINGW32__
+	typedef LONG NTSTATUS;
+	typedef NTSTATUS(WINAPI* RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
+	HMODULE hMod;
+	RtlGetVersionPtr lFxPtr;
+	RTL_OSVERSIONINFOW lRovi = { 0 };
+
+	hMod = GetModuleHandleW(L"ntdll.dll");
+	if (hMod) {
+		lFxPtr = (RtlGetVersionPtr)GetProcAddress(hMod, "RtlGetVersion");
+		if (lFxPtr)
+		{
+			lRovi.dwOSVersionInfoSize = sizeof(lRovi);
+			if (!lFxPtr(&lRovi))
+			{
+				return lRovi.dwMajorVersion;
+			}
+		}
+	}
+#else
+	if (powershellPresent()) return 6; /*minimum is vista*/
+#endif
+	return 0;
+}
+#else
 static void sigHandler(int sig)
 {
 	FILE * lIn ;
@@ -186,7 +247,8 @@ void toot(float aFrequency_Hz, int aLength_ms)
 
 #ifdef _WIN32
 	if (toot_verbose) printf("windows Beep %dHz %dms\n", (int)aFrequency_Hz, aLength_ms);
-	Beep((DWORD)aFrequency_Hz, aLength_ms);
+	if (windowsVersion() > 5) Beep((DWORD)aFrequency_Hz, aLength_ms);
+	else MessageBeep(-1);
 #else /* UNIX */
 
 	if ( pactlPresent() ) 
