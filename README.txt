@@ -1,4 +1,6 @@
-I've got tired of beep not working, here is toot (cross-platform C C++), toot works. 
+I've got tired of beep not working, here is toot (cross-platform C C++), toot works.
+It simply tries to call different ways to produce a sine wave that might be present on your machine.
+
    __              __
   / /_____  ____  / /_
  / __/ __ \/ __ \/ __/
@@ -6,7 +8,7 @@ I've got tired of beep not working, here is toot (cross-platform C C++), toot wo
 \__/\____/\____/\__/
  a beep that beeps
 
-it's both a C C++ library and a command line tool
+it's both a C/C++ library and a command line tool
 Windows OSX Linux BSD Solaris Minix Raspbian
 
 toot v1.0.9 [Jan 17, 2021]
@@ -23,7 +25,7 @@ Usage:  toot [-f frequency_Hz] [-l length_ms]
 Default: toot -f 440. -l 300
 Example: toot
 
-the release tab contains windows and osx executables
+the release pane contains windows and osx executables
 
 make sure the volume is on (though some beeps may use the hardware speaker)
 if you can't adjust frequency / length (or if it doesn't beep)
