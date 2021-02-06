@@ -22,7 +22,7 @@ Usage:  toot [-f frequency_Hz] [-l length_ms]
         toot [-v] [--verbose]  
         toot [-h] [--help]
         toot [--version]  
-Default: toot -f 440. -l 300
+Default: toot -f 440. -l 400
 Example: toot
 
 the release pane contains windows and osx executables

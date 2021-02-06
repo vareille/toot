@@ -84,7 +84,7 @@ int main(int argc, char * argv[])
 				printf("\ttoot [-v] [--verbose]\n");
 				printf("\ttoot [-h] [--help]\n");
 				printf("\ttoot [--version]\n");
-				printf("Default: toot -f 440. -l 300\n");
+				printf("Default: toot -f 440. -l 400\n");
 				printf("Example: toot\n");
 				return 0;
 			}

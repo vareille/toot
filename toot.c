@@ -242,7 +242,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 #endif
 
 	aFrequency_Hz = aFrequency_Hz > 0 ? aFrequency_Hz : 440.f;
-	aLength_ms = aLength_ms > 0 ? aLength_ms : 300;
+	aLength_ms = aLength_ms > 0 ? aLength_ms : 400;
 
 #ifdef _WIN32
 	if (toot_verbose) printf("windows Beep %dHz %dms\n", (int)aFrequency_Hz, aLength_ms);
