@@ -36,8 +36,7 @@ If you know of any other way to reliably generate sine wave sound or beep on
 anykind of machine, I'll be happy to add them to toot. Let me know: toot at ysengrin.com
 
 OSX :
-$ gcc -o toot.app toot_cmd_line_main.c toot.c
-( or clang )
+$ clang -o toot.app toot_cmd_line_main.c toot.c
 
 UNIX :
 $ gcc -o toot toot_cmd_line_main.c toot.c
