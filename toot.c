@@ -1,10 +1,10 @@
 /* this file can be renamed with extension ".cpp" as the code is 100% compatible C C++ */
 
 /* __              __ 
-  / /_____  ____  / /_  toot.c v1.0.9 [Jan 17, 2021] zlib licence
+  / /_____  ____  / /_  toot.c v1.0.10 [Sep 9, 2023] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
-\__/\____/\____/\__/    Copyright (c) 2017 - 2021 Guillaume Vareille http://ysengrin.com
+\__/\____/\____/\__/    Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
  a beep that beeps      https://github.com/vareille/toot
                         git clone https://github.com/vareille/toot.git toot
                          ____________________________________
@@ -41,7 +41,7 @@ misrepresented as being the original software.
 #endif
 #include <stdio.h>
 
-char toot_version[8] = "1.0.9"; /* contains toots current version number */
+char toot_version[8] = "1.0.10"; /* contains toots current version number */
 
 int toot_verbose = 0; /* 0 (default) or 1 : prints the command line calls */
 
@@ -119,7 +119,7 @@ static void sigHandler(int sig)
 static int detectPresence(char const * aExecutable)
 {
 	char lBuff [256] ;
-	char lTestedString [256] = "which " ;
+	char lTestedString [256] = "command -v " ;
 	FILE * lIn ;
 
 	strcat( lTestedString , aExecutable ) ;
