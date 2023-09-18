@@ -11,7 +11,7 @@ It simply tries to call different ways to produce a sine wave that might be pres
 it's both a C/C++ library and a command line tool
 Windows OSX Linux BSD Solaris Minix Raspbian
 
-toot v1.0.10 [Sep 9, 2023]
+toot v1.0.11 [Sep 18, 2023]
 (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com zlib licence
 https://github.com/vareille/toot
 git clone https://github.com/vareille/toot.git toot
@@ -39,15 +39,18 @@ OSX :
 $ clang -o toot.app toot_cmd_line_main.c toot.c
 
 UNIX :
-$ gcc -o toot toot_cmd_line_main.c toot.c
+$ gcc -o toot tootlib.c toot.c
 ( or clang tcc cc CC )
 
 MinGW :
-> gcc -o toot.exe toot_cmd_line_main.c toot.c -LC:/mingw/lib -lkernel32
+> gcc -o toot.exe tootlib.c toot.c -LC:/mingw/lib -lkernel32
 ( or tcc )
 
+Windows cli :
+cl toot.c tootlib.c user32.lib /W4
+
 VisualStudio :
-Create an application project or an empty project (it links against Kernel32.lib)
+Create an application project or an empty project (it links against user32.lib)
 
 ************************************************************************
 I am also the author of tiny file dialogs
