@@ -1,7 +1,7 @@
 /* this file can be renamed with extension ".cpp" as the code is 100% compatible C C++ */
 
 /* __              __ 
-  / /_____  ____  / /_  toot.c v1.0.11 [Sep 18, 2023] zlib licence
+  / /_____  ____  / /_  toot.c v1.1.0 [Sep 18, 2023] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/    Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
@@ -41,9 +41,16 @@ misrepresented as being the original software.
 #endif
 #include <stdio.h>
 
-char toot_version[8] = "1.0.11"; /* contains toots current version number */
+char toot_version[8] = "1.1.0"; /* contains toots current version number */
 
 int toot_verbose = 0; /* 0 (default) or 1 : prints the command line calls */
+
+#ifdef _MSC_VER
+#pragma warning(disable:4996) /* allows usage of strncpy, strcpy, strcat, sprintf, fopen */
+#pragma warning(disable:4100) /* allows usage of strncpy, strcpy, strcat, sprintf, fopen */
+#pragma warning(disable:4706) /* allows usage of strncpy, strcpy, strcat, sprintf, fopen */
+#endif
+
 
 #ifdef _WIN32
 static int powershellPresent(void)
@@ -320,3 +327,10 @@ void toot(float aFrequency_Hz, int aLength_ms)
 
 #endif /* UNIX */
 }
+
+#ifdef _MSC_VER
+#pragma warning(default:4996)
+#pragma warning(default:4100)
+#pragma warning(default:4706)
+#endif
+

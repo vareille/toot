@@ -11,7 +11,7 @@ It simply tries to call different ways to produce a sine wave that might be pres
 it's both a C/C++ library and a command line tool
 Windows OSX Linux BSD Solaris Minix Raspbian
 
-toot v1.0.11 [Sep 18, 2023]
+toot v1.1.0 [Sep 18, 2023]
 (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com zlib licence
 https://github.com/vareille/toot
 git clone https://github.com/vareille/toot.git toot
