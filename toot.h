@@ -1,10 +1,10 @@
-/* __              __ 
+/* __              __
   / /_____  ____  / /_  toot.h v1.1.0 [Sep 18, 2023] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/    Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
  a beep that beeps      https://github.com/vareille/toot
-                        git clone https://github.com/vareille/toot.git toot
+                        git clone https://github.com/vareille/toot.git
                          ____________________________________
                         |                                    |
                         |    email: toot at ysengrin.com     |

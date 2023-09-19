@@ -1,12 +1,12 @@
 /* this file can be renamed with extension ".cpp" as the code is 100% compatible C C++ */
 
-/* __              __ 
-  / /_____  ____  / /_  toot.c v1.1.0 [Sep 18, 2023] zlib licence
+/* __              __
+  / /_____  ____  / /_  tootlib.c v1.1.0 [Sep 18, 2023] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/    Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
  a beep that beeps      https://github.com/vareille/toot
-                        git clone https://github.com/vareille/toot.git toot
+                        git clone https://github.com/vareille/toot.git
                          ____________________________________
                         |                                    |
                         |    email: toot at ysengrin.com     |
@@ -257,7 +257,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 	else MessageBeep(MB_OK);
 #else /* UNIX */
 
-	if ( pactlPresent() ) 
+	if ( pactlPresent() )
 	{
 		signal(SIGINT, sigHandler);
 
@@ -266,7 +266,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 "thnum=$(pactl load-module module-sine frequency=%d);sleep %f;pactl unload-module $thnum",
 			(int)aFrequency_Hz, aLength_ms / 1000.f);
 	}
-	else if ( speakertestPresent() ) 
+	else if ( speakertestPresent() )
 	{
 		/*strcpy( lDialogString , "timeout -k .3 .3 speaker-test --frequency 440 --test sine > /dev/tty" ) ;*/
 		lDir = opendir("/dev/tty");

@@ -14,14 +14,14 @@ Windows OSX Linux BSD Solaris Minix Raspbian
 toot v1.1.0 [Sep 18, 2023]
 (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com zlib licence
 https://github.com/vareille/toot
-git clone https://github.com/vareille/toot.git toot
+git clone https://github.com/vareille/toot.git
 
 void toot(float aFrequency_Hz, int aLength_ms) ;
 
-Usage:  toot [-f frequency_Hz] [-l length_ms]  
-        toot [-v] [--verbose]  
+Usage:  toot [-f frequency_Hz] [-l length_ms]
+        toot [-v] [--verbose]
         toot [-h] [--help]
-        toot [--version]  
+        toot [--version]
 Default: toot -f 440. -l 400
 Example: toot
 
@@ -56,7 +56,7 @@ Create an application project or an empty project (it links against user32.lib)
 I am also the author of tiny file dialogs
 it's a cross-platform C C++ file that offers many native dialogs
 no init, no main loop, no include, no linking
- _________    
+ _________
 /         \   NotifyPopup InputBox PasswordBox MessageBox ColorPicker
 |tiny file|   OpenFileDialog SaveFileDialog SelectFolderDialog
 | dialogs |   ASCII UTF-8 (and also MBCS UTF-16 on windows)
