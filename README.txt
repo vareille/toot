@@ -35,12 +35,9 @@ if you can't adjust frequency / length (or if it doesn't beep)
 If you know of any other way to reliably generate sine wave sound or beep on
 anykind of machine, I'll be happy to add them to toot. Let me know: toot at ysengrin.com
 
-OSX :
+UNIX (including MacOS) :
 $ clang -o toot tootlib.c toot.c
-
-UNIX :
-$ gcc -o toot tootlib.c toot.c
-( or clang tcc cc CC )
+( or gcc tcc cc CC )
 
 MinGW :
 > gcc -o toot.exe tootlib.c toot.c -LC:/mingw/lib -lkernel32
