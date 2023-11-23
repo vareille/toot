@@ -1,7 +1,7 @@
 /* this file can be renamed with extension ".cpp" as the code is 100% compatible C C++ */
 
 /* __              __
-  / /_____  ____  / /_  tootlib.c v1.1.0 [Sep 18, 2023] zlib licence
+  / /_____  ____  / /_  tootlib.c v1.1.1 [Nov 23, 2023] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/    Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
@@ -41,9 +41,9 @@ misrepresented as being the original software.
 #endif
 #include <stdio.h>
 
-char toot_version[8] = "1.1.0"; /* contains toots current version number */
+char toot_version[8] = "1.1.1"; /* contains toots current version number */
 
-int toot_verbose = 0; /* 0 (default) or 1 : prints the command line calls */
+int toot_verbose = 0 ; /* 0 (default) or 1 : prints the command line calls */
 
 #ifdef _MSC_VER
 #pragma warning(disable:4996) /* allows usage of strncpy, strcpy, strcat, sprintf, fopen */
@@ -309,8 +309,8 @@ void toot(float aFrequency_Hz, int aLength_ms)
 	else
 	{
 		lDir = opendir("/dev/tty");
-		if ( !lDir && (ENOENT!=errno) ) strcpy( lDialogString , "printf '\a' > /dev/tty" ) ;
-		else strcpy( lDialogString , "printf '\\a' > /dev/tty" ) ;
+		if ( !lDir && (ENOENT!=errno) ) strcpy( lDialogString , "printf '\\a' > /dev/tty" ) ;
+		else strcpy( lDialogString , "printf '\\a'" ) ;
 	}
 
 	if (toot_verbose) printf( "toot-cmdline: %s\n" , lDialogString ) ;

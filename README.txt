@@ -11,7 +11,7 @@ It simply tries to call different ways to produce a sine wave that might be pres
 it's both a C/C++ library and a command line tool
 Windows OSX Linux BSD Solaris Minix Raspbian
 
-toot v1.1.0 [Sep 18, 2023]
+toot v1.1.1 [Nov 23, 2023]
 (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com zlib licence
 https://github.com/vareille/toot
 git clone https://github.com/vareille/toot.git
@@ -36,7 +36,7 @@ If you know of any other way to reliably generate sine wave sound or beep on
 anykind of machine, I'll be happy to add them to toot. Let me know: toot at ysengrin.com
 
 OSX :
-$ clang -o toot.app tootlib.c toot.c
+$ clang -o toot tootlib.c toot.c
 
 UNIX :
 $ gcc -o toot tootlib.c toot.c
