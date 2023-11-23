@@ -310,7 +310,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 	{
 		lDir = opendir("/dev/tty");
 		if ( !lDir && (ENOENT!=errno) ) strcpy( lDialogString , "printf '\a' > /dev/tty" ) ;
-		else strcpy( lDialogString , "printf '\a'" ) ;
+		else strcpy( lDialogString , "printf '\\a' > /dev/tty" ) ;
 	}
 
 	if (toot_verbose) printf( "toot-cmdline: %s\n" , lDialogString ) ;
