@@ -1,4 +1,4 @@
-/* SPDX-License-Identifier: ZLIB
+/* SPDX-License-Identifier: Zlib
 Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
 
 this file can be renamed with extension ".cpp" as the code is 100% compatible C C++ */

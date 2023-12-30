@@ -1,4 +1,4 @@
-SPDX-License-Identifier: ZLIB
+SPDX-License-Identifier: Zlib
 Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
 
 I've got tired of beep not working, here is toot (cross-platform C C++), toot works.

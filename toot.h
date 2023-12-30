@@ -1,4 +1,4 @@
-/* SPDX-License-Identifier: ZLIB
+/* SPDX-License-Identifier: Zlib
 Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
 
    __              __
