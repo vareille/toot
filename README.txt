@@ -54,6 +54,11 @@ MinGW :
 Windows cli :
 cl toot.c tootlib.c user32.lib /W4
 
+Windows TinyCC v0.9.27 :
+  > tcc -o hello.exe hello.c tinyfiledialogs.c ^
+      -isystem C:\tcc\winapi-full-for-0.9.27\include\winapi ^
+      -luser32
+
 VisualStudio :
 Create an application project or an empty project (it links against user32.lib)
 
