@@ -41,6 +41,7 @@ anykind of machine, I'll be happy to add them to toot. Let me know: toot at ysen
 UNIX (including MacOS) :
 $ clang -o toot tootlib.c toot.c
 ( or gcc tcc cc CC )
+( or g++ clang++ )
 
 MinGW :
 > gcc -o toot.exe tootlib.c toot.c -LC:/mingw/lib -lkernel32
