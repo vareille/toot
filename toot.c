@@ -62,7 +62,11 @@ int main(int argc, char * argv[])
 			|| !strcmp(argv[i], "-v") || !strcmp(argv[i], "--verbose") )
 		{
 #ifdef _WIN32
-			if ( !GetConsoleWindow() && AttachConsole(ATTACH_PARENT_PROCESS) )
+			if ( !GetConsoleWindow()
+#ifndef __TINYC__
+				&& AttachConsole(ATTACH_PARENT_PROCESS)
+#endif
+				)
 			{
 				lHStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 				lFd = _open_osfhandle((intptr_t)lHStdOut, _O_TEXT);
