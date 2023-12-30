@@ -13,6 +13,10 @@ It simply tries to call different ways to produce a sine wave that might be pres
 
 it's both a C/C++ library and a command line tool
 Windows OSX Linux BSD Solaris Minix Raspbian
+			 ________________________
+			|                        |
+			| 100% compatible C C++  |
+			|________________________|
 
 toot v1.1.2 [Dec 30, 2023]
 (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com zlib licence

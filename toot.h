@@ -31,8 +31,13 @@ misrepresented as being the original software.
 3. This notice may not be removed or altered from any source distribution.
 */
 
+#ifndef TOOT_H
+#define TOOT_H
+
 extern char toot_version[8] ; /* contains toot current version number */
 
 extern int toot_verbose ; /* 0 (default) or 1 : prints the command line calls */
 
 void toot(float aFrequency_Hz, int aLength_ms) ;
+
+#endif /* TOOT_H */
