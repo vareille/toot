@@ -1,7 +1,10 @@
-/* this file can be renamed with extension ".cpp" as the code is 100% compatible C C++ */
+/* SPDX-License-Identifier: ZLIB
+Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
+
+this file can be renamed with extension ".cpp" as the code is 100% compatible C C++ */
 
 /* __              __
-  / /_____  ____  / /_  tootlib.c v1.1.1 [Nov 23, 2023] zlib licence
+  / /_____  ____  / /_  tootlib.c v1.1.2 [Dec 30, 2023] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/    Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
@@ -41,7 +44,7 @@ misrepresented as being the original software.
 #endif
 #include <stdio.h>
 
-char toot_version[8] = "1.1.1"; /* contains toots current version number */
+char toot_version[8] = "1.1.2"; /* contains toots current version number */
 
 int toot_verbose = 0 ; /* 0 (default) or 1 : prints the command line calls */
 
@@ -149,7 +152,7 @@ static int detectPresence(char const * aExecutable)
 }
 
 
-static int osascriptPresent( )
+static int osascriptPresent( void )
 {
 	static int lOsascriptPresent = -1 ;
 	if ( lOsascriptPresent < 0 )
@@ -160,7 +163,7 @@ static int osascriptPresent( )
 }
 
 
-static int afplayPresent( )
+static int afplayPresent( void )
 {
 	static int lAfplayPresent = -1 ;
 	char lBuff [256] ;
@@ -184,7 +187,7 @@ static int afplayPresent( )
 }
 
 
-static int pactlPresent( )
+static int pactlPresent( void )
 {
 	static int lPactlPresent = -1 ;
 	if ( lPactlPresent < 0 )
@@ -195,7 +198,7 @@ static int pactlPresent( )
 }
 
 
-static int speakertestPresent( )
+static int speakertestPresent( void )
 {
 	static int lSpeakertestPresent = -1 ;
 	if ( lSpeakertestPresent < 0 )
@@ -206,7 +209,7 @@ static int speakertestPresent( )
 }
 
 
-static int beepexePresent()
+static int beepexePresent( void )
 {
 	static int lBeepexePresent = -1;
 	if (lBeepexePresent < 0)
@@ -217,7 +220,7 @@ static int beepexePresent()
 }
 
 
-static int beepPresent( )
+static int beepPresent( void )
 {
 	static int lBeepPresent = -1 ;
 	if ( lBeepPresent < 0 )
@@ -228,7 +231,7 @@ static int beepPresent( )
 }
 
 
-static int playPresent()
+static int playPresent( void )
 {
 	static int lPlayPresent = -1;
 	if (lPlayPresent < 0)
@@ -264,7 +267,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 		/*strcpy( lDialogString , "pactl load-module module-sine frequency=440;sleep .3;pactl unload-module module-sine" ) ;*/
 		sprintf(lDialogString,
 "thnum=$(pactl load-module module-sine frequency=%d);sleep %f;pactl unload-module $thnum",
-			(int)aFrequency_Hz, aLength_ms / 1000.f);
+			(int) aFrequency_Hz, aLength_ms / 1000. ) ;
 	}
 	else if ( speakertestPresent() )
 	{
@@ -274,26 +277,26 @@ void toot(float aFrequency_Hz, int aLength_ms)
 		{
 			sprintf(lDialogString,
 				"(speaker-test -t sine -f %f > /dev/tty) & pid=$!;sleep %f;kill -9 $pid",
-				aFrequency_Hz, aLength_ms / 1000.f);
+				(double) aFrequency_Hz, aLength_ms / 1000. ) ;
 		}
 		else
 		{
 			sprintf(lDialogString,
 				"(speaker-test -t sine -f %f) & pid=$!;sleep %f;kill -9 $pid",
-				aFrequency_Hz, aLength_ms / 1000.f);
+				(double) aFrequency_Hz, aLength_ms / 1000. ) ;
 		}
 	}
 	else if (beepexePresent())
 	{
-		sprintf(lDialogString, "beep.exe %f %d\n", aFrequency_Hz, aLength_ms);
+		sprintf(lDialogString, "beep.exe %f %d\n", (double) aFrequency_Hz, aLength_ms);
 	}
 	else if (playPresent()) /* play is part of sox */
 	{
-		sprintf(lDialogString, "play -n synth %f sine %f\n", aLength_ms/1000.f, aFrequency_Hz);
+		sprintf(lDialogString, "play -n synth %f sine %f\n", aLength_ms/1000., (double) aFrequency_Hz);
 	}
 	else if ( beepPresent() )
 	{
-		sprintf(lDialogString, "beep -f %f -l %d\n", aFrequency_Hz, aLength_ms);
+		sprintf(lDialogString, "beep -f %f -l %d\n", (double) aFrequency_Hz, aLength_ms);
 	}
 	else if ( osascriptPresent() )
 	{

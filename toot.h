@@ -1,5 +1,8 @@
-/* __              __
-  / /_____  ____  / /_  toot.h v1.1.1 [Nov 23, 2023] zlib licence
+/* SPDX-License-Identifier: ZLIB
+Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
+
+   __              __
+  / /_____  ____  / /_  toot.h v1.1.2 [Dec 30, 2023] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/    Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
