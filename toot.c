@@ -1,12 +1,6 @@
 /* SPDX-License-Identifier: Zlib
 Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
 
-this file can be renamed with extension ".cpp" and compiled as C++.
-			 ________________________
-			|                        |
-			| 100% compatible C C++  |
-			|________________________|
-
    __              __
   / /_____  ____  / /_  toot.c v1.1.2 [Dec 30, 2023] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
@@ -47,7 +41,7 @@ misrepresented as being the original software.
 #include <stdlib.h>
 #include <string.h>
 
-#include "toot.h"
+#include "tootlib.h"
 
 int main(int argc, char * argv[])
 {

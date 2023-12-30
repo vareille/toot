@@ -1,11 +1,10 @@
 /* SPDX-License-Identifier: Zlib
 Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
-
-this file can be renamed with extension ".cpp" and compiled as C++.
-			 ________________________
-			|                        |
-			| 100% compatible C C++  |
-			|________________________|
+ _________________________________________________________________________
+|                       100% compatible C C++                             |
+|   this file can be renamed with extension ".cpp" and compiled as C++.   |
+|    (you MAY need to comment out << extern "C" >> in the header file)    |
+|_________________________________________________________________________|
 
    __              __
   / /_____  ____  / /_  tootlib.c v1.1.2 [Dec 30, 2023] zlib licence
@@ -47,6 +46,8 @@ misrepresented as being the original software.
  #include <signal.h> /* on old systems try <sys/signal.h> instead */
 #endif
 #include <stdio.h>
+
+#include "tootlib.h"
 
 char toot_version[8] = "1.1.2"; /* contains toots current version number */
 

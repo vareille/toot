@@ -1,5 +1,11 @@
 /* SPDX-License-Identifier: Zlib
 Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
+ _______________________________________________________________________________
+|                        100% compatible C C++                                  |
+| If you are using a C++ compiler to compile tootlib.c                          |
+| (maybe renamed with the extension ".cpp")                                     |
+| then you MAY need to comment out << extern "C" >> bellow in this header file) |
+|_______________________________________________________________________________|
 
    __              __
   / /_____  ____  / /_  toot.h v1.1.2 [Dec 30, 2023] zlib licence
@@ -34,10 +40,20 @@ misrepresented as being the original software.
 #ifndef TOOT_H
 #define TOOT_H
 
+#ifdef	__cplusplus
+/* if tootlib.c is compiled as C++ code rather than C code, you MAY need to comment this out
+				and the corresponding closing bracket near the end of this file. */
+extern "C" {
+#endif
+
 extern char toot_version[8] ; /* contains toot current version number */
 
 extern int toot_verbose ; /* 0 (default) or 1 : prints the command line calls */
 
 void toot(float aFrequency_Hz, int aLength_ms) ;
+
+#ifdef	__cplusplus
+} /*extern "C"*/
+#endif
 
 #endif /* TOOT_H */
