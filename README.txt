@@ -1,9 +1,12 @@
 SPDX-License-Identifier: Zlib
 Copyright (c) 2017 - 2024 Guillaume Vareille http://ysengrin.com
+	 ________________________________________________________________
+	|                                                                |
+	| 100% compatible C C++  ->  You can rename all .c files as .cpp |
+	|________________________________________________________________|
 
 I've got tired of beep not working, here is toot (cross-platform C C++), toot works.
 It simply tries to call different ways to produce a sine wave that might be present on your machine.
-
    __              __
   / /_____  ____  / /_
  / __/ __ \/ __ \/ __/
@@ -13,15 +16,15 @@ It simply tries to call different ways to produce a sine wave that might be pres
 
 it's both a C/C++ library and a command line tool
 Windows OSX Linux BSD Solaris Minix Raspbian
-			 ________________________
-			|                        |
-			| 100% compatible C C++  |
-			|________________________|
 
 toot v1.2 [Jan 18, 2024]
 
 https://github.com/vareille/toot
 git clone https://github.com/vareille/toot
+     ______________________________________________________________
+    |                                                              |
+    | my email address is at the top of the header file tootlib.h  |
+    |______________________________________________________________|
 
 void toot(float aFrequency_Hz, int aLength_ms) ;
 
@@ -40,7 +43,7 @@ if you can't adjust frequency / length (or if it doesn't beep)
 	on unix:	you can install pactl or speaker-test or sox
 
 If you know of any other way to reliably generate sine wave sound or beep on
-anykind of machine, I'll be happy to add them to toot. Let me know: toot at ysengrin.com
+anykind of machine, I'll be happy to add them to toot.
 
 UNIX (including MacOS) :
 $ clang -o toot tootlib.c toot.c

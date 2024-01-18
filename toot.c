@@ -1,6 +1,9 @@
 /* SPDX-License-Identifier: Zlib
 Copyright (c) 2017 - 2024 Guillaume Vareille http://ysengrin.com
-
+	 ________________________________________________________________
+	|                                                                |
+	| 100% compatible C C++  ->  You can rename this .c file as .cpp |
+	|________________________________________________________________|
    __              __
   / /_____  ____  / /_  toot.c v1.2 [Jan 18, 2024] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"

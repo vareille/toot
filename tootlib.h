@@ -1,12 +1,9 @@
 /* SPDX-License-Identifier: Zlib
 Copyright (c) 2017 - 2024 Guillaume Vareille http://ysengrin.com
- _______________________________________________________________________________
-|                        100% compatible C C++                                  |
-| If you are using a C++ compiler to compile tootlib.c                          |
-| (maybe renamed with the extension ".cpp")                                     |
-| then you MAY need to comment out << extern "C" >> bellow in this header file) |
-|_______________________________________________________________________________|
-
+	 ________________________________________________________________
+	|                                                                |
+	| 100% compatible C C++  ->  You can rename all .c files as .cpp |
+	|________________________________________________________________|
    __              __
   / /_____  ____  / /_  toot.h v1.2 [Jan 18, 2024] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
