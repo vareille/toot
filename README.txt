@@ -1,5 +1,5 @@
 SPDX-License-Identifier: Zlib
-Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
+Copyright (c) 2017 - 2024 Guillaume Vareille http://ysengrin.com
 
 I've got tired of beep not working, here is toot (cross-platform C C++), toot works.
 It simply tries to call different ways to produce a sine wave that might be present on your machine.
@@ -18,10 +18,10 @@ Windows OSX Linux BSD Solaris Minix Raspbian
 			| 100% compatible C C++  |
 			|________________________|
 
-toot v1.1.2 [Dec 30, 2023]
-(c) 2017 - 2023 Guillaume Vareille http://ysengrin.com zlib licence
+toot v1.2 [Jan 18, 2024]
+
 https://github.com/vareille/toot
-git clone https://github.com/vareille/toot.git
+git clone https://github.com/vareille/toot
 
 void toot(float aFrequency_Hz, int aLength_ms) ;
 

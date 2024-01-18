@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: Zlib
-Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
+Copyright (c) 2017 - 2024 Guillaume Vareille http://ysengrin.com
  _________________________________________________________________________
 |                       100% compatible C C++                             |
 |   this file can be renamed with extension ".cpp" and compiled as C++.   |
@@ -7,12 +7,12 @@ Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
 |_________________________________________________________________________|
 
    __              __
-  / /_____  ____  / /_  tootlib.c v1.1.2 [Dec 30, 2023] zlib licence
+  / /_____  ____  / /_  tootlib.c v1.2 [Jan 18, 2024] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
-\__/\____/\____/\__/    Copyright (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com
+\__/\____/\____/\__/
  a beep that beeps      https://github.com/vareille/toot
-                        git clone https://github.com/vareille/toot.git
+                        git clone https://github.com/vareille/toot
                          ____________________________________
                         |                                    |
                         |    email: toot at ysengrin.com     |
@@ -49,7 +49,7 @@ misrepresented as being the original software.
 
 #include "tootlib.h"
 
-char toot_version[8] = "1.1.2"; /* contains toots current version number */
+char toot_version[8] = "1.2"; /* contains toots current version number */
 
 int toot_verbose = 0 ; /* 0 (default) or 1 : prints the command line calls */
 
@@ -192,6 +192,17 @@ static int afplayPresent( void )
 }
 
 
+static int ffplayPresent( void )
+{
+	static int lFFplayPresent = -1;
+	if (lFFplayPresent < 0)
+	{
+		lFFplayPresent = detectPresence("ffplay") ;
+	}
+	return lFFplayPresent ;
+}
+
+
 static int pactlPresent( void )
 {
 	static int lPactlPresent = -1 ;
@@ -265,7 +276,11 @@ void toot(float aFrequency_Hz, int aLength_ms)
 	else MessageBeep(MB_OK);
 #else /* UNIX */
 
-	if ( pactlPresent() )
+	if (ffplayPresent()) /* play is part of sox */
+	{
+		sprintf(lDialogString, "ffplay -f lavfi -i sine=f=%f:d=%f -autoexit -nodisp", (double) aFrequency_Hz , aLength_ms/1000. );
+	}
+	else if ( pactlPresent() )
 	{
 		signal(SIGINT, sigHandler);
 
@@ -328,7 +343,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 		pclose( lIn ) ;
 	}
 
-	if ( pactlPresent() )
+	if ( !ffplayPresent() && pactlPresent() )
 	{
 		signal(SIGINT, SIG_DFL);
 	}
