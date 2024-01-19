@@ -49,8 +49,8 @@ the release pane contains windows and osx executables
 
 make sure the volume is on (though some beeps may use the hardware speaker)
 if you can't adjust frequency / length (or if it doesn't beep)
-	on osx:		you can install sox http://macappstore.org/sox
-	on unix:	you can install pactl or speaker-test or sox
+	on osx:		install sox (from macport.org or brew.sh)
+	on unix:	install sox
 
 If you know of any other way to reliably generate sine wave sound or beep on
 anykind of machine, I'll be happy to add them to toot.

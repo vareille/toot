@@ -264,7 +264,7 @@ static int beepPresent( void )
 }
 
 
-static int playPresent( void )
+static int playPresent( void ) /* play is part of sox*/
 {
 	static int lPlayPresent = -1;
 	if (lPlayPresent < 0)
@@ -323,20 +323,21 @@ void toot(float aFrequency_Hz, int aLength_ms)
 	{
 		sprintf(lDialogString, "ffplay -f lavfi -i sine=f=%f:d=%f -autoexit -nodisp", (double) aFrequency_Hz , aLength_ms/1000. );
 	}
-	else if (beepexePresent())
-	{
-		sprintf(lDialogString, "beep.exe %f %d\n", (double) aFrequency_Hz, aLength_ms);
-	}
 	else if (playPresent()) /* play is part of sox */
 	{
 		sprintf(lDialogString, "play -n synth %f sine %f\n", aLength_ms/1000., (double) aFrequency_Hz);
 	}
-	else if ( beepPresent() )
+	else if (beepexePresent())
+	{
+		sprintf(lDialogString, "beep.exe %f %d\n", (double) aFrequency_Hz, aLength_ms);
+	}
+	/*else if ( beepPresent() )
 	{
 		sprintf(lDialogString, "beep -f %f -l %d\n", (double) aFrequency_Hz, aLength_ms);
-	}
+	}*/
 	else if ( osascriptPresent() )
 	{
+		printf( "On MacOS you must install sox (from macport.org or brew.sh)\n" ) ;
 		if ( afplayPresent() >= 2 )
 		{
 			strcpy( lDialogString , "afplay /System/Library/Sounds/Ping.aiff") ;
@@ -348,6 +349,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 	}
 	else
 	{
+	    printf( "On this system, you need to install sox\n" ) ;
 		lDir = opendir("/dev/tty");
 		if ( !lDir && (ENOENT!=errno) ) strcpy( lDialogString , "printf '\\a' > /dev/tty" ) ;
 		else strcpy( lDialogString , "printf '\\a'" ) ;
@@ -360,7 +362,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 		pclose( lIn ) ;
 	}
 
-	if ( !ffplayPresent() && pactlPresent() )
+	if ( pactlPresent() )
 	{
 		signal(SIGINT, SIG_DFL);
 	}
