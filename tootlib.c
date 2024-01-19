@@ -218,7 +218,7 @@ static int pactlPresent( void )
 				lPactlPresent = 0 ;
 			}
 			pclose( lIn ) ;
-			if (toot_verbose) printf("pactl is using pipewire %d\n", lPactlPresent);
+			if (toot_verbose) printf("is pactl using pulseaudio ? %d\n", lPactlPresent);
 		}
 	}
 	return lPactlPresent ;
