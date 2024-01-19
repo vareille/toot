@@ -287,17 +287,13 @@ void toot(float aFrequency_Hz, int aLength_ms)
 	else MessageBeep(MB_OK);
 #else /* UNIX */
 
-	if (ffplayPresent())
-	{
-		sprintf(lDialogString, "ffplay -f lavfi -i sine=f=%f:d=%f -autoexit -nodisp", (double) aFrequency_Hz , aLength_ms/1000. );
-	}
-	else if ( pactlPresent() )
+	if ( pactlPresent() )
 	{
 		signal(SIGINT, sigHandler);
 
 		/*strcpy( lDialogString , "pactl load-module module-sine frequency=440;sleep .3;pactl unload-module module-sine" ) ;*/
 		sprintf(lDialogString,
-"thnum=$(pactl load-module module-sine frequency=%d);sleep %f;pactl unload-module $thnum",
+            "thnum=$(pactl load-module module-sine frequency=%d);sleep %f;pactl unload-module $thnum",
 			(int) aFrequency_Hz, aLength_ms / 1000. ) ;
 	}
 	else if ( speakertestPresent() )
@@ -316,6 +312,10 @@ void toot(float aFrequency_Hz, int aLength_ms)
 				"(speaker-test -t sine -f %f) & pid=$!;sleep %f;kill -9 $pid",
 				(double) aFrequency_Hz, aLength_ms / 1000. ) ;
 		}
+	}
+	else if (ffplayPresent())
+	{
+		sprintf(lDialogString, "ffplay -f lavfi -i sine=f=%f:d=%f -autoexit -nodisp", (double) aFrequency_Hz , aLength_ms/1000. );
 	}
 	else if (beepexePresent())
 	{
