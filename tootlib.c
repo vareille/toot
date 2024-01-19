@@ -4,8 +4,14 @@ Copyright (c) 2017 - 2024 Guillaume Vareille http://ysengrin.com
 	|                                                                |
 	| 100% compatible C C++  ->  You can rename this .c file as .cpp |
 	|________________________________________________________________|
+     ____________________________________________________________
+    |  _________   ______________   ____________   ____________  |
+    | |         | |              | |            | |            | |
+    | | NO INIT | | NO MAIN LOOP | | NO LINKING | | NO INCLUDE | |
+    | |_________| |______________| |____________| |____________| |
+    |____________________________________________________________|
    __              __
-  / /_____  ____  / /_  tootlib.c v1.2 [Jan 18, 2024] zlib licence
+  / /_____  ____  / /_  tootlib.c v1.2 [Jan 19, 2024] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/

@@ -17,14 +17,24 @@ It simply tries to call different ways to produce a sine wave that might be pres
 it's both a C/C++ library and a command line tool
 Windows OSX Linux BSD Solaris Minix Raspbian
 
-toot v1.2 [Jan 18, 2024]
+toot v1.2 [Jan 19, 2024]
 
 https://github.com/vareille/toot
 git clone https://github.com/vareille/toot
-     ______________________________________________________________
-    |                                                              |
-    | my email address is at the top of the header file tootlib.h  |
-    |______________________________________________________________|
+     _____________________________________________________________
+    |                                                             |
+    | my email address is at the top of the header file tootlib.h |
+    |_____________________________________________________________|
+	 ________________________________________________________________
+	|                                                                |
+	| 100% compatible C C++  ->  You can rename all .c files as .cpp |
+	|________________________________________________________________|
+     ____________________________________________________________
+    |  _________   ______________   ____________   ____________  |
+    | |         | |              | |            | |            | |
+    | | NO INIT | | NO MAIN LOOP | | NO LINKING | | NO INCLUDE | |
+    | |_________| |______________| |____________| |____________| |
+    |____________________________________________________________|
 
 void toot(float aFrequency_Hz, int aLength_ms) ;
 
