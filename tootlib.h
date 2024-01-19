@@ -44,8 +44,6 @@ misrepresented as being the original software.
 #define TOOT_H
 
 #ifdef	__cplusplus
-/* if tootlib.c is compiled as C++ code rather than C code, you MAY need to comment this out
-				and the corresponding closing bracket near the end of this file. */
 extern "C" {
 #endif
 

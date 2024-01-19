@@ -93,7 +93,7 @@ int main(int argc, char * argv[])
 				printf(" / /_/ /_/ / /_/ / /_  \n");
 				printf(" \\__/\\____/\\____/\\__/  \n");
 				printf("  a beep that beeps\n\n");
-				printf("toot v%s (c) 2017 - 2023 Guillaume Vareille http://ysengrin.com zlib licence\n", toot_version);
+				printf("toot v%s (c) 2017 - 2024 Guillaume Vareille http://ysengrin.com zlib licence\n", toot_version);
 				printf("cross-platform library and command line tool to toot \"tooooot\"\n");
 				printf("OSX Windows Linux BSD Solaris Minix Raspbian\n");
 				printf("Usage:\ttoot [-f frequency_Hz] [-l length_ms]\n");
