@@ -204,9 +204,22 @@ static int ffplayPresent( void )
 static int pactlPresent( void )
 {
 	static int lPactlPresent = -1 ;
+	char lBuff [256] ;
+	FILE * lIn ;
+
 	if ( lPactlPresent < 0 )
 	{
 		lPactlPresent = detectPresence("pactl") ;
+		if ( lPactlPresent )
+		{
+			lIn = popen( "pactl info | grep PipeWire" , "r" ) ;
+			if ( fgets( lBuff , sizeof( lBuff ) , lIn ) )
+			{
+				lPactlPresent = 0 ;
+			}
+			pclose( lIn ) ;
+			if (toot_verbose) printf("pactl is using pipewire %d\n", lPactlPresent);
+		}
 	}
 	return lPactlPresent ;
 }
@@ -274,7 +287,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 	else MessageBeep(MB_OK);
 #else /* UNIX */
 
-	if (ffplayPresent()) /* play is part of sox */
+	if (ffplayPresent())
 	{
 		sprintf(lDialogString, "ffplay -f lavfi -i sine=f=%f:d=%f -autoexit -nodisp", (double) aFrequency_Hz , aLength_ms/1000. );
 	}
