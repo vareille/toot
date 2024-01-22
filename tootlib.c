@@ -11,7 +11,7 @@ Copyright (c) 2017 - 2024 Guillaume Vareille http://ysengrin.com
     | |_________| |______________| |____________| |____________| |
     |____________________________________________________________|
    __              __
-  / /_____  ____  / /_  tootlib.c v1.2 [Jan 19, 2024] zlib licence
+  / /_____  ____  / /_  tootlib.c v1.2.1 [Jan 22, 2024] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/
@@ -253,7 +253,7 @@ static int beepexePresent( void )
 }
 
 
-static int beepPresent( void )
+/*static int beepPresent( void )
 {
 	static int lBeepPresent = -1 ;
 	if ( lBeepPresent < 0 )
@@ -261,7 +261,7 @@ static int beepPresent( void )
 		lBeepPresent = detectPresence("beep") ;
 	}
 	return lBeepPresent ;
-}
+}*/
 
 
 static int playPresent( void ) /* play is part of sox*/
@@ -295,7 +295,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 
 	if ( pactlPresent() )
 	{
-		signal(SIGINT, sigHandler);
+		(void) signal(SIGINT, sigHandler);
 
 		/*strcpy( lDialogString , "pactl load-module module-sine frequency=440;sleep .3;pactl unload-module module-sine" ) ;*/
 		sprintf(lDialogString,
@@ -364,7 +364,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 
 	if ( pactlPresent() )
 	{
-		signal(SIGINT, SIG_DFL);
+		(void) signal(SIGINT, SIG_DFL);
 	}
 
 #endif /* UNIX */
