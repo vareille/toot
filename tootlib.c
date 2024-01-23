@@ -11,7 +11,7 @@ Copyright (c) 2017 - 2024 Guillaume Vareille http://ysengrin.com
     | |_________| |______________| |____________| |____________| |
     |____________________________________________________________|
    __              __
-  / /_____  ____  / /_  tootlib.c v1.2.1 [Jan 22, 2024] zlib licence
+  / /_____  ____  / /_  tootlib.c v1.2.2 [Jan 23, 2024] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/
@@ -218,8 +218,8 @@ static int pactlPresent( void )
 		lPactlPresent = detectPresence("pactl") ;
 		if ( lPactlPresent )
 		{
-			lIn = popen( "pactl info | grep PipeWire" , "r" ) ;
-			if ( fgets( lBuff , sizeof( lBuff ) , lIn ) )
+			lIn = popen( "pactl info | grep -iF pulseaudio" , "r" ) ;
+			if ( ! (fgets( lBuff , sizeof( lBuff ) , lIn ) && ! strstr(lBuff, "PipeWire") ) )
 			{
 				lPactlPresent = 0 ;
 			}
