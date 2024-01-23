@@ -224,7 +224,7 @@ static int pactlPresent( void )
 				lPactlPresent = 0 ;
 			}
 			pclose( lIn ) ;
-			if (toot_verbose) printf("is pactl using pulseaudio ? %d\n", lPactlPresent);
+			if (toot_verbose) printf("is pactl valid ? %d\n", lPactlPresent);
 		}
 	}
 	return lPactlPresent ;
