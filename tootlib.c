@@ -41,7 +41,8 @@ misrepresented as being the original software.
 */
 
 #ifdef _WIN32
- #include <Windows.h>
+ #include <windows.h>
+ #include <stdlib.h>
 #else /* UNIX */
  #define _POSIX_C_SOURCE 2 /* to accept POSIX 2 in old ANSI C standards */
  #include <string.h>
@@ -74,7 +75,8 @@ static int powershellPresent(void)
 
 	if (lPowershellPresent < 0)
 	{
-		if (!(lIn = _popen("where powershell.exe", "r")))
+		lIn = _popen("where powershell.exe", "r") ;
+		if ( ! lIn )
 		{
 			lPowershellPresent = 0;
 			return 0;

@@ -42,9 +42,11 @@ misrepresented as being the original software.
 
 #ifdef _WIN32
 #define _WIN32_WINNT 0x0501
-#include <Windows.h>
+#include <windows.h>
 #include <fcntl.h>
 #include <io.h>
+#include <stdint.h>
+//#include <consoleapi.h>
 #endif
 #include <stdio.h>
 #include <stdlib.h>
@@ -72,7 +74,7 @@ int main(int argc, char * argv[])
 		{
 #ifdef _WIN32
 			if ( !GetConsoleWindow()
-#ifndef __TINYC__
+#if ! defined(__TINYC__) && ! defined(__DMC__)
 				&& AttachConsole(ATTACH_PARENT_PROCESS)
 #endif
 				)
