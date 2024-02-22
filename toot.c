@@ -46,7 +46,6 @@ misrepresented as being the original software.
 #include <fcntl.h>
 #include <io.h>
 #include <stdint.h>
-//#include <consoleapi.h>
 #endif
 #include <stdio.h>
 #include <stdlib.h>
