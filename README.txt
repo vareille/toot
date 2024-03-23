@@ -61,14 +61,13 @@ $ clang -o toot tootlib.c toot.c
 ( or g++ clang++ )
 
 MinGW :
-> gcc -o toot.exe tootlib.c toot.c -LC:/mingw/lib -lkernel32
-( or tcc )
-
-Windows cli :
-> cl toot.c tootlib.c user32.lib /W4
+> gcc -o toot.exe tootlib.c toot.c -luser32
 
 Windows TinyCC v0.9.27 :
 > tcc -o toot.exe toot.c tootlib.c -luser32
+
+Windows cli :
+> cl toot.c tootlib.c user32.lib /W4
 
 VisualStudio :
 Create an application project or an empty project (it links against user32.lib)
