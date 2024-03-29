@@ -57,14 +57,22 @@ anykind of machine, I'll be happy to add them to toot.
 
 UNIX (including MacOS) :
 $ clang -o toot tootlib.c toot.c
-( or gcc tcc cc CC )
-( or g++ clang++ )
+( or gcc tcc icx)
+( or g++ clang++ icpx )
 
 MinGW :
 > gcc -o toot.exe tootlib.c toot.c -luser32
 
+Windows Borland C :
+> bcc32c -o toot.exe toot.c tootlib.c -luser32
+
 Windows TinyCC v0.9.27 :
 > tcc -o toot.exe toot.c tootlib.c -luser32
+
+Windows Intel C :
+> icx-cc -o toot.exe toot.c tootlib.c -luser32
+> icx-cl -o toot.exe toot.c tootlib.c user32.lib
+
 
 Windows cli :
 > cl toot.c tootlib.c user32.lib /W4
@@ -83,4 +91,3 @@ no init, no main loop, no include, no linking
 \____  ___/   Native dialog library for WINDOWS MAC OSX GTK+ QT CONSOLE
      \|       http://tinyfiledialogs.sourceforge.net
 ************************************************************************
-
