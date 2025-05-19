@@ -289,7 +289,7 @@ void toot(float aFrequency_Hz, int aLength_ms)
 	aLength_ms = aLength_ms > 0 ? aLength_ms : 400;
 
 #ifdef _WIN32
-	if (toot_verbose) printf("windows Beep %dHz %dms\n", (int)aFrequency_Hz, aLength_ms);
+	if (toot_verbose) printf("Windows function Beep(dwFreq, dwDuration) %dHz %dms\n", (int)aFrequency_Hz, aLength_ms);
 	if (windowsVersion() > 5) Beep((DWORD)aFrequency_Hz, aLength_ms);
 	else MessageBeep(MB_OK);
 #else /* UNIX */
