@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: Zlib
-Copyright (c) 2017 - 2024 Guillaume Vareille http://ysengrin.com
+Copyright (c) 2017 - 2025 Guillaume Vareille http://ysengrin.com
 	 ________________________________________________________________
 	|                                                                |
 	| 100% compatible C C++  ->  You can rename this .c file as .cpp |
@@ -11,7 +11,7 @@ Copyright (c) 2017 - 2024 Guillaume Vareille http://ysengrin.com
     | |_________| |______________| |____________| |____________| |
     |____________________________________________________________|
    __              __
-  / /_____  ____  / /_  toot.c v1.2.2 [Jan 23, 2024] zlib licence
+  / /_____  ____  / /_  toot.c v1.2.3 [May 30, 2025] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/
@@ -94,7 +94,7 @@ int main(int argc, char * argv[])
 				printf(" / /_/ /_/ / /_/ / /_  \n");
 				printf(" \\__/\\____/\\____/\\__/  \n");
 				printf("  a beep that beeps\n\n");
-				printf("toot v%s (c) 2017 - 2024 Guillaume Vareille http://ysengrin.com zlib licence\n", toot_version);
+				printf("toot v%s (c) 2017 - 2025 Guillaume Vareille http://ysengrin.com zlib licence\n", toot_version);
 				printf("cross-platform library and command line tool to toot \"tooooot\"\n");
 				printf("OSX Windows Linux BSD Solaris Minix Raspbian\n");
 				printf("Usage:\ttoot [-f frequency_Hz] [-l length_ms]\n");
