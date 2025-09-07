@@ -131,8 +131,9 @@ static int windowsVersion(void)
 #else
 static void sigHandler(int sig)
 {
-	FILE * lIn ;
-	if ( ( lIn = popen( "pactl unload-module module-sine" , "r" ) ) )
+	FILE * lIn = popen( "pactl unload-module module-sine" , "r" ) ;
+
+	if ( lIn )
     {
         pclose( lIn ) ;
     }
