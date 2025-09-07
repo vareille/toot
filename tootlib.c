@@ -43,7 +43,9 @@ misrepresented as being the original software.
 #ifdef _WIN32
  #include <windows.h>
 #else /* UNIX */
- #define _POSIX_C_SOURCE 2 /* to accept POSIX 2 in old ANSI C standards */
+ #ifndef __SUNPRO_C
+  #define _POSIX_C_SOURCE 2 /* to accept POSIX 2 in old ANSI C standards */
+ #endif
  #include <string.h>
  #include <dirent.h> /* on old systems try <sys/dir.h> instead */
  #include <errno.h>
