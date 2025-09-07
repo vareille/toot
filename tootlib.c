@@ -11,7 +11,7 @@ Copyright (c) 2017 - 2025 Guillaume Vareille http://ysengrin.com
     | |_________| |______________| |____________| |____________| |
     |____________________________________________________________|
    __              __
-  / /_____  ____  / /_  tootlib.c v1.2.3 [May 30, 2025] zlib licence
+  / /_____  ____  / /_  tootlib.c v1.2.4 [Sep 7, 2025] zlib licence
  / __/ __ \/ __ \/ __/  cross-platform library and command line tool to toot "tooooot"
 / /_/ /_/ / /_/ / /_    file created [November 7, 2017]
 \__/\____/\____/\__/
@@ -55,7 +55,7 @@ misrepresented as being the original software.
 
 #include "tootlib.h"
 
-char toot_version[8] = "1.2.3"; /* contains toots current version number */
+char toot_version[8] = "1.2.4"; /* contains toots current version number */
 
 int toot_verbose = 0 ; /* 0 (default) or 1 : prints the command line calls */
 
