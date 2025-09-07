@@ -131,7 +131,7 @@ static int windowsVersion(void)
 #else
 static void sigHandler(int sig)
 {
-	FILE * lIn = popen( "pactl unload-module module-sine" , "r" ) ;
+	FILE * lIn = ( FILE * ) popen( "pactl unload-module module-sine" , "r" ) ;
 
 	if ( lIn )
     {
@@ -147,7 +147,7 @@ static int detectPresence(char const * aExecutable)
 
 	strcat( lTestedString , aExecutable ) ;
 	strcat( lTestedString, " 2>/dev/null ");
-	lIn = popen( lTestedString , "r" ) ;
+	lIn = ( FILE * ) popen( lTestedString , "r" ) ;
 	if ( ( fgets( lBuff , sizeof( lBuff ) , lIn ) != NULL )
 		&& ( ! strchr( lBuff , ':' ) )
 		&& ( strncmp(lBuff, "no ", 3) ) )
@@ -187,7 +187,7 @@ static int afplayPresent( void )
 		lAfplayPresent = detectPresence("afplay") ;
 		if ( lAfplayPresent )
 		{
-			lIn = popen( "test -e /System/Library/Sounds/Ping.aiff || echo Ping" , "r" ) ;
+			lIn = ( FILE * ) popen( "test -e /System/Library/Sounds/Ping.aiff || echo Ping" , "r" ) ;
 			if ( fgets( lBuff , sizeof( lBuff ) , lIn ) == NULL )
 			{
 				lAfplayPresent = 2 ;
@@ -222,7 +222,7 @@ static int pactlPresent( void )
 		lPactlPresent = detectPresence("pactl") ;
 		if ( lPactlPresent )
 		{
-			lIn = popen( "pactl info | grep -iF pulseaudio" , "r" ) ;
+			lIn = ( FILE * ) popen( "pactl info | grep -iF pulseaudio" , "r" ) ;
 			if ( ! (fgets( lBuff , sizeof( lBuff ) , lIn ) && ! strstr(lBuff, "PipeWire") ) )
 			{
 				lPactlPresent = 0 ;
@@ -361,7 +361,8 @@ void toot(float aFrequency_Hz, int aLength_ms)
 
 	if (toot_verbose) printf( "toot-cmdline: %s\n" , lDialogString ) ;
 
-	if ( ( lIn = popen( lDialogString , "r" ) ) )
+	lIn = ( FILE * ) popen( lDialogString , "r" ) ;
+	if ( lIn )
 	{
 		pclose( lIn ) ;
 	}
