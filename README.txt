@@ -1,5 +1,5 @@
 SPDX-License-Identifier: Zlib
-Copyright (c) 2017 - 2024 Guillaume Vareille http://ysengrin.com
+Copyright (c) 2017 - 2025 Guillaume Vareille http://ysengrin.com
 	 ________________________________________________________________
 	|                                                                |
 	| 100% compatible C C++  ->  You can rename all .c files as .cpp |
