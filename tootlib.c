@@ -76,7 +76,7 @@ static int powershellPresent(void)
 
 	if (lPowershellPresent < 0)
 	{
-		lIn = _popen("where powershell.exe", "r");
+		lIn = (FILE *) _popen("where powershell.exe", "r");
 		if ( ! lIn )
 		{
 			lPowershellPresent = 0;
@@ -105,7 +105,7 @@ static int powershellPresent(void)
 
 static int windowsVersion(void)
 {
-#if !defined(__MINGW32__) || defined(__MINGW64_VERSION_MAJOR)
+#if (!defined(__MINGW32__) || defined(__MINGW64_VERSION_MAJOR)) && !defined(__DMC__) /*anyway DMC doesnt have popen*/
 	typedef LONG NTSTATUS;
 	typedef NTSTATUS(WINAPI* RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
 	HMODULE hMod;
