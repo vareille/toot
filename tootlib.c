@@ -133,6 +133,8 @@ static void sigHandler(int sig)
 {
 	FILE * lIn = ( FILE * ) popen( "pactl unload-module module-sine" , "r" ) ;
 
+	(void) sig ;
+
 	if ( lIn )
     {
         pclose( lIn ) ;
